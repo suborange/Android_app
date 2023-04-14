@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GymJourney.LoginActivity"
+    android:background="@color/material_dynamic_tertiary30"
+    >
+<!--    the login page, go to user or admin-->
+
+    <!--    "PLEASE LOGIN "-->
+    <TextView
+        android:id="@+id/please_login_bg_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login To Your"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textSize="53sp"
+        android:textColor="@color/purple_700"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="13dp"
+        />
+
+        <!--    "PLEASE LOGIN "-->
+    <TextView
+        android:id="@+id/please_login_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login To Your"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textSize="50sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="10dp"
+        />
+
+
+    <!--    "GymJourney "-->
+    <TextView
+        android:id="@+id/GymJourney_bg_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GymJourney"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textSize="60sp"
+        android:textColor="@color/purple_700"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/please_login_text"
+        android:layout_margin="13dp"
+        />
+
+    <!--    "GymJourney "-->
+    <TextView
+        android:id="@+id/GymJourney_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GymJourney"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textSize="58sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/please_login_text"
+        android:layout_margin="10dp"
+        />
+
+    <!--    "USER ID "-->
+    <TextView
+        android:id="@+id/User_ID_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="User ID:"
+        android:textColor="@color/purple_200"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/User_input"
+        app:layout_constraintStart_toStartOf="@id/please_login_text"
+        app:layout_constraintTop_toBottomOf="@id/please_login_text"
+        android:layout_marginTop="150dp"
+
+        />
+
+<!--    USER ID INPUT -->
+    <EditText
+        android:id="@+id/User_input"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Click me "
+        android:textColorHint="@color/teal_200"
+        android:textSize="28sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        android:backgroundTint="@color/purple_200"
+        app:layout_constraintStart_toEndOf="@id/User_ID_text"
+        app:layout_constraintTop_toTopOf="@id/User_ID_text"
+
+
+        />
+
+    <!--    "PASSWORD "-->
+    <TextView
+        android:id="@+id/Password_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="Password:"
+        android:textColor="@color/purple_200"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/User_input"
+        app:layout_constraintStart_toStartOf="@id/please_login_text"
+        app:layout_constraintTop_toBottomOf="@id/User_ID_text"
+        android:layout_marginTop="60dp"
+        />
+
+<!--    PASSWORD INPUT-->
+    <EditText
+        android:id="@+id/password_input"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Click me "
+        android:textColorHint="@color/teal_200"
+        android:textSize="28sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        android:backgroundTint="@color/purple_200"
+        app:layout_constraintStart_toEndOf="@id/User_ID_text"
+        app:layout_constraintTop_toTopOf="@id/Password_text"
+
+
+        />
+
+
+    <!--    BUTTON TO SIGN IN WITH CREDENTIALS-->
+    <Button
+        android:id="@+id/signin_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:text="SIGN IN"
+        android:fontFamily="sans-serif-black"
+        android:padding="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="100dp"
+
+        />
+
+
+    <!--    "App Info "-->
+    <TextView
+        android:id="@+id/app_info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/version"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textSize="11sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="30dp"
+        />
+
+    <!--    "secret text"-->
+    <TextView
+        android:id="@+id/secret_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/secret_text"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textSize="8sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="30dp"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

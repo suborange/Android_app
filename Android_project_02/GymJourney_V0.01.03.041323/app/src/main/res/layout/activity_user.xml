@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GymJourney.UserActivity"
+    android:background="@color/material_dynamic_tertiary30">
+
+
+    <!--    "welcome  "-->
+    <TextView
+        android:id="@+id/welcome_bg_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:textSize="32sp"
+        android:textColor="@color/purple_700"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="23dp"
+        />
+    <!--    "welcome  "-->
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:textSize="30sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20dp"
+        />
+
+    <!--    "User name "-->
+    <TextView
+        android:id="@+id/User_bg_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textSize="60sp"
+        android:textColor="@color/purple_700"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_text"
+        android:layout_margin="13dp"
+        />
+
+    <!--    "User name "-->
+    <TextView
+        android:id="@+id/User_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textSize="58sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome_text"
+        android:layout_margin="10dp"
+        />
+
+
+
+
+    <!--    BUTTON TO SELECT CURRENT JOURNEY-->
+    <Button
+        android:id="@+id/current_journey_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Current Journey"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:fontFamily="serif-monospace"
+        android:padding="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/User_text"
+        android:layout_margin="20dp"
+
+        />
+
+    <!--    BUTTON TO RESTART JOURNEY-->
+    <Button
+        android:id="@+id/restart_journey_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Restart Journey"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:fontFamily="serif-monospace"
+        android:padding="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/current_journey_button"
+        android:layout_margin="20dp"
+
+        />
+
+    <!--    LOGOUT ( back to main)-->
+    <Button
+        android:id="@+id/logout_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGOUT"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_200"
+        android:backgroundTint="@color/purple_200"
+        android:fontFamily="serif"
+        android:padding="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="40dp"
+
+        />
+
+
+
+    <!--    "App Info "-->
+    <TextView
+        android:id="@+id/app_info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/version"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textSize="11sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="30dp"
+        />
+
+    <!--    "secret text"-->
+    <TextView
+        android:id="@+id/secret_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/secret_text"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textSize="8sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="30dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

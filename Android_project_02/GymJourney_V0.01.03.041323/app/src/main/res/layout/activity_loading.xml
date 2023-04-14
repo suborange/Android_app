@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GymJourney.LoadingActivity"
+    android:background="@color/material_dynamic_tertiary30"
+    >
+
+
+    <!--    "GymJourney "-->
+    <TextView
+        android:id="@+id/GymJourney_bg_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GymJourney"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textSize="60sp"
+        android:textColor="@color/purple_700"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="303dp"
+        />
+
+    <!--    "GymJourney "-->
+    <TextView
+        android:id="@+id/GymJourney_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GymJourney"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textSize="58sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="300dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
