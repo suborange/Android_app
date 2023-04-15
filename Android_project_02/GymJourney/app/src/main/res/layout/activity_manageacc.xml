@@ -117,9 +117,10 @@
         android:layout_height="wrap_content"
         android:divider="@drawable/table_divider"
         android:showDividers="middle"
-        android:background="@drawable/table_header_bg"
+
 
         />
+    <!--        android:background="@drawable/table_header_bg"-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
