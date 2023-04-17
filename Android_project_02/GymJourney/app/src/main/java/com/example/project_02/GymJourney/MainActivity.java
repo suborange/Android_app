@@ -1,9 +1,14 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.01.04.041423
+ * @version 0.01.05.041723
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
+ */
+
+/** VERSIONS
+ * 0.01.00.041023: updated build.gradle:module:app create packages, and db files, java files and xml files; get enough xml layouts for part 02;
+ * check github for version: https://github.com/suborange/Android_app
  */
 package com.example.project_02.GymJourney;
 
