@@ -20,6 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="65dp"
+        android:layout_marginTop="10dp"
 
         />
 <!--     noww add the rest down here -->

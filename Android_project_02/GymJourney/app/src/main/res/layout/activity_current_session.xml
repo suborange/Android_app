@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GymJourney.CurrentSessionActivity"
+    android:background="@color/material_dynamic_tertiary30">
+
+
+
+    <!--    "{workout_name} -  "-->
+    <TextView
+        android:id="@+id/workout_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="{work_name}"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:textSize="30sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20dp"
+
+        />
+
+    <!--    "{session_id}  "-->
+    <TextView
+        android:id="@+id/session_id_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="{session_id}"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:textSize="30sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/workout_name_text"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20dp"
+
+        />
+
+    <!--    "Sets  |  Reps  |  Weight"-->
+    <TextView
+        android:id="@+id/session_details_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sets    |    Reps    |    Weight"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textSize="30sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/session_id_text"
+        android:layout_margin="10dp"
+        />
+
+    <!--    add the recycler view thing here if possible whatever it is.-->
+    <!--    will add textviews of the data, and a button to possible edit it? -->
+
+
+
+    <!--    BUTTON TO SELECT REPS-->
+    <Button
+        android:id="@+id/select_reps_button"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:text="reps"
+        android:fontFamily="sans-serif-black"
+        android:padding="10sp"
+        android:backgroundTint="@color/teal_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="118dp"
+
+        />
+
+    <!--    BUTTON TO SELECT WEIGHT-->
+    <Button
+        android:id="@+id/select_weight_button"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:text="weight"
+        android:fontFamily="sans-serif-black"
+        android:padding="10sp"
+        android:backgroundTint="@color/teal_700"
+        app:layout_constraintStart_toEndOf="@id/select_reps_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="118dp"
+
+        />
+
+    <!--    BUTTON TO INCREASE NUMBER-->
+    <Button
+        android:id="@+id/increase_number_button"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:textSize="44sp"
+        android:text="+"
+        android:fontFamily="sans-serif-black"
+        android:padding="10sp"
+        android:backgroundTint="@color/teal_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="18dp"
+
+        />
+
+    <!--    BUTTON TO DECREASE NUMBER-->
+    <Button
+        android:id="@+id/decrease_number_button"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:textSize="44sp"
+        android:text="-"
+        android:fontFamily="sans-serif-black"
+        android:padding="10sp"
+        android:backgroundTint="@color/teal_700"
+        app:layout_constraintStart_toEndOf="@id/increase_number_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="18dp"
+
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
