@@ -36,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
      *      *      admin2	        admin2	    yes
      *
      * 0.01.03.041323: added check to see if any user exists with the default user entities, if they don't exist, then create and insert them into database
+     * TODO start and setup all the other activites, until i figure out the table portion
+     *  make the "tables" just one text view, seperated by new lines or something, ( maybe 3 text views controlled by one scroll) and can refresh like he did
+     *  and would have to figure out how to make the buttons to edit or delete work..
+     *  maybe add a field or selection to delete one of them. hm field seems easiest
+     *  
      */
     public static final String VERSION = "0.01.00.41023";
 
@@ -103,8 +108,6 @@ public class MainActivity extends AppCompatActivity {
                 // just needs to change intents?
                 Intent createacc_activity = CreateaccActivity.IntentFactory(getApplicationContext());
                 startActivity(createacc_activity);
-                
-                
             }
         });
 
@@ -116,10 +119,8 @@ public class MainActivity extends AppCompatActivity {
                 // just needs to change intents?
                 Intent login_activity = LoginActivity.IntentFactory(getApplicationContext());
                 startActivity(login_activity);
-
-
             }
-        });
+        }); 
 
     }// end oncreate
     
