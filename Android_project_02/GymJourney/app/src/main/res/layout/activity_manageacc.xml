@@ -7,8 +7,24 @@
     tools:context=".GymJourney.ManageaccActivity"
     android:background="@color/material_dynamic_tertiary30">
 
+    <!--    BUTTON TO GO BACK TO ADMIN-->
+    <Button
+        android:id="@+id/goback_button"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:text="Go Back"
+        android:fontFamily="sans-serif-black"
+        android:padding="20sp"
+        android:backgroundTint="@color/teal_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="65dp"
 
-<!--    &lt;!&ndash;    " User ID "&ndash;&gt;-->
+        />
+<!--     noww add the rest down here -->
+
+    <!--    " User ID "-->
 <!--    <TextView-->
 <!--        android:id="@+id/User_ID_bg_text"-->
 <!--        android:layout_width="wrap_content"-->
@@ -25,7 +41,7 @@
 <!--        android:layout_marginStart="29dp"-->
 <!--        />-->
 
-<!--    &lt;!&ndash;    " User ID "&ndash;&gt;-->
+    <!--    " User ID "-->
 <!--    <TextView-->
 <!--        android:id="@+id/User_ID_text"-->
 <!--        android:layout_width="wrap_content"-->
@@ -42,7 +58,7 @@
 <!--        android:layout_marginLeft="27dp"-->
 <!--        />-->
 
-<!--    &lt;!&ndash;    " Password "&ndash;&gt;-->
+    <!--    " Password "-->
 <!--    <TextView-->
 <!--        android:id="@+id/Passwords_bg_text"-->
 <!--        android:layout_width="wrap_content"-->
@@ -59,7 +75,7 @@
 <!--        android:layout_marginStart="29dp"-->
 <!--        />-->
 
-<!--    &lt;!&ndash;    " Password "&ndash;&gt;-->
+    <!--    " Password "-->
 <!--    <TextView-->
 <!--        android:id="@+id/Password_text"-->
 <!--        android:layout_width="wrap_content"-->
@@ -76,7 +92,7 @@
 <!--        android:layout_marginLeft="27dp"-->
 <!--        />-->
 
-<!--    &lt;!&ndash;    " Delete "&ndash;&gt;-->
+    <!--    " Delete "-->
 <!--    <TextView-->
 <!--        android:id="@+id/Delete_bg_text"-->
 <!--        android:layout_width="wrap_content"-->
@@ -93,7 +109,7 @@
 <!--        android:layout_marginLeft="29dp"-->
 <!--        />-->
 
-<!--    &lt;!&ndash;    " Delete "&ndash;&gt;-->
+    <!--    " Delete "-->
 <!--    <TextView-->
 <!--        android:id="@+id/Delete_text"-->
 <!--        android:layout_width="wrap_content"-->
