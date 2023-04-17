@@ -10,7 +10,7 @@
 
     <!--    "Name of Journey  "-->
     <EditText
-        android:id="@+id/welcome_text"
+        android:id="@+id/journey_name_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="name of journey"

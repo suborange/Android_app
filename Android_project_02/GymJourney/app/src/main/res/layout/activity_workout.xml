@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GymJourney.WorkoutActivity"
+    android:background="@color/material_dynamic_tertiary30">
+
+
+    <!--    "Workout -  "-->
+    <TextView
+        android:id="@+id/workout_bg_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Workout -"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:textSize="32sp"
+        android:textColor="@color/purple_700"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="23dp"
+
+        />
+    <!--    "Workout -  "-->
+    <TextView
+        android:id="@+id/workout_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Workout  -"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:textSize="30sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20dp"
+
+        />
+
+    <!--    " name "-->
+    <EditText
+        android:id="@+id/workout_name_field"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="name"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:textSize="30sp"
+        android:textColor="@color/purple_200"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/workout_text"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="20dp"
+        android:background="null"
+        />
+
+
+    <!--    BUTTON TO ADD SESSION-->
+    <Button
+        android:id="@+id/add_session_button"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:text="add session"
+        android:fontFamily="sans-serif-black"
+        android:padding="20sp"
+        android:backgroundTint="@color/teal_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="65dp"
+        android:layout_marginBottom="30dp"
+
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
