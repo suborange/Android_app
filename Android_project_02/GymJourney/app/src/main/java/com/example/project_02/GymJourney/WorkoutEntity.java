@@ -16,11 +16,40 @@ import com.example.project_02.DB.AppDatabase;
 public class WorkoutEntity {
     /**
      * 0.01.00.41023: created and added as entity; added fields;
+     * 0.02.01.041723: finalized fields, user ID and workout ID
      */
-    @PrimaryKey
-    private int journey_id;
-
+    @PrimaryKey // not auto generated, grabbed from the logged in user entity
     private int User_ID;
+
+
     private int workout_ID;
+
+    // private String journey_goal;
+
+    public WorkoutEntity() {
+
+    }
+
+    public WorkoutEntity(int User_ID,int workout_ID) {
+        this.User_ID = User_ID;
+        this.workout_ID = workout_ID;        
+    }
+
+    public int getUser_ID() {
+        return User_ID;
+    }
+
+    public void setUser_ID(int user_ID) {
+        User_ID = user_ID;
+    }
+
+    public int getWorkout_ID() {
+        return workout_ID;
+    }
+
+    public void setWorkout_ID(int workout_ID) {
+        this.workout_ID = workout_ID;
+    }
+
 
 }

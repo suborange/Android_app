@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "375c00355b7ff66fc2b4293c38db8a00",
+    "identityHash": "1dd6cefbf5c6b034410a8efaa81a5098",
     "entities": [
       {
         "tableName": "USER_TABLE",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`User_ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `User_nickname` TEXT, `User_password` TEXT, `is_admin` INTEGER NOT NULL, `User_weight` REAL NOT NULL, `logged_in` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`User_ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `User_nickname` TEXT, `User_password` TEXT, `journey_name` TEXT, `is_admin` INTEGER NOT NULL, `User_weight` REAL NOT NULL, `logged_in` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "User_ID",
@@ -23,6 +23,12 @@
           {
             "fieldPath": "User_password",
             "columnName": "User_password",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "journey_name",
+            "columnName": "journey_name",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -58,7 +64,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '375c00355b7ff66fc2b4293c38db8a00')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1dd6cefbf5c6b034410a8efaa81a5098')"
     ]
   }
 }

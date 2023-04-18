@@ -25,7 +25,7 @@ public interface myDAO {
     /**
      * 0.01.00.41023: added insert,update, and delete for entities; add one basic query to get all results from a table; User, Workout, and Session Entity;
      * 0.01.03.041323: added test queries to check for existing or non-existing users, based on log in or user name; COULD POSSIBLY FAIL
-     *
+     * 0.02.01.041723: add workout entity and its queries;
      *
      * idea: make another entity with only thing, it will hold the value of the last logged in user 0 >= and so -1 would be logged out, opr something.
      * save their use id in that other table, on load in check that table to see if a user, which user, is still logged in? way less memory and databse management?
@@ -46,8 +46,13 @@ public interface myDAO {
     @Delete
     void Delete(UserEntity... userEntities); // delete an entity
 
+    // TEST FOR IF USERS EXIST THAT ARE LOGGED IN
     @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE EXISTS (SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE logged_in = :log ) ")
     boolean TestExistenceOfUsers(boolean log);
+
+    // TEST FOR IF USER THAT IS LOGGED IN, HAS A JOURNEY NAME OR IS IT BLANK.
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE EXISTS (SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE journey_name = :null_name ) ")
+    boolean TestUserJourneyName(String null_name);
 
     @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE EXISTS (SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE user_nickname = :user_name) ")
     boolean TestExistenceOfName(String user_name);
@@ -67,24 +72,30 @@ public interface myDAO {
     @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE logged_in = :log ")
     UserEntity QueryLoggedinUser(boolean log); // query the users with logged_in = true
 
+
+
 /*
     *//**
      *          WORKOUT ENTITY
-     *//*
-    @Insert
-    void Insert(WorkoutEntity... workoutEntities); // insert an entity
+     */
+//    @Insert
+//    void Insert(WorkoutEntity... workoutEntities); // insert an entity
+//
+//    @Update
+//    void Update(WorkoutEntity... workoutEntities); // update an entity
+//
+//    @Delete
+//    void Delete(WorkoutEntity... workoutEntities); // delete an entity
+//
+//    @Query("SELECT * FROM " + AppDatabase.WORKOUT_TABLE) // need any ordering here???
+//    List<WorkoutEntity> getWorkoutData(); // what to be returned form this query search?
 
-    @Update
-    void Update(WorkoutEntity... workoutEntities); // update an entity
-
-    @Delete
-    void Delete(WorkoutEntity... workoutEntities); // delete an entity
-
-    @Query("SELECT * FROM " + AppDatabase.WORKOUT_TABLE) // need any ordering here???
-    List<WorkoutEntity> getWorkoutData(); // what to be returned form this query search?
+    // to query for when the user needs the workout name;
+//    @Query ("SELECT * FROM " + AppDatabase.WORKOUT_TABLE + " WHERE ")
+//    WorkoutEntity getWorkoutName();
 
 
-    *//**
+    /**
      *          SESSION ENTITY
      *//*
     @Insert
