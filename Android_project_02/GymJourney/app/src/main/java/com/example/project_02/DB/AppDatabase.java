@@ -25,6 +25,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public static final String USER_TABLE = "USER_TABLE"; // poss same as journey
     public static final String WORKOUT_TABLE = "WORKOUT_TABLE"; // the table of all the workouts created, keyed to one journey_id
     public static final String SESSION_TABLE = "SESSION_TABLE"; // the table of all the sessions created within one workout, keyed to one workout_id
+    public static final String SETS_TABLE = "SETS_TABLE";
     public static final String LOGIN_STATE = "LOGIN_STATE"; //simply the state of the user, are they logged in already. or are they not logged in at all?
 
     public abstract myDAO getmyDAO(); // how does this even work? we never define.
