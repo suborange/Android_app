@@ -127,16 +127,16 @@
 <!--        android:layout_marginLeft="27dp"-->
 <!--        />-->
 
-    <TableLayout
-        android:id="@+id/table_header_text"
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:divider="@drawable/table_divider"
-        android:showDividers="middle"
+<!--    <TableLayout-->
+<!--        android:id="@+id/table_header_text"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:divider="@drawable/table_divider"-->
+<!--        android:showDividers="middle"-->
 
 
-        />
+<!--        />-->
     <!--        android:background="@drawable/table_header_bg"-->
 
 

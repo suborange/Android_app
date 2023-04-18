@@ -13,6 +13,8 @@ import androidx.room.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -137,6 +139,29 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(main_activity);
             }
         });
+
+        edit_user_input.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                Toast.makeText(LoginActivity.this, "before", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // i assume this is where i add the code i need?
+                Toast.makeText(LoginActivity.this, "on", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Toast.makeText(LoginActivity.this, "after", Toast.LENGTH_SHORT).show();
+
+            }
+        }); // so this is that pattern, creating a new instance inside the argument. so text watcher is abstract? so it forces the override on all these methods
+
+
     } // end oncreate
 
 

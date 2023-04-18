@@ -24,7 +24,7 @@ public class UserEntity {
     private String User_nickname; // the user_id entered
     private String User_password; // the password entered
     private boolean is_admin; // maybe make a byte, and 0 == false, anything else not 0 == true
-    private float User_weight;
+    private float User_weight; // how to delete?
     private boolean logged_in;
 
     public UserEntity() {
@@ -34,7 +34,6 @@ public class UserEntity {
     public UserEntity(String nickname, String password) {
         this.User_nickname = nickname;
         this.User_password = password;
-        this.User_weight = 0.0f;
         this.is_admin = false;
         this.logged_in = true; // should initially set this when the user is created and logged in?
         // TODO maybe switch logged in to false, and log in in the places where it should login
