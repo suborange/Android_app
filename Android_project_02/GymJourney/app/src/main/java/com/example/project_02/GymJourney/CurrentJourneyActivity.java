@@ -72,8 +72,7 @@ public class CurrentJourneyActivity extends AppCompatActivity {
         // TODO need to add something for when the database has a value for the journey name. if it does, then  set the edittext to that text
 
 
-        // test query for existence in the workout_table
-//        has_null_name = DAO_current_journey.TestUserJourneyName("");
+
         UserEntity user_loggedin = DAO_current_journey.QueryLoggedinUser(true); // get the logged in user
         // if null, then create an entity for this new user, leaving the journey_name as blank
         if (user_loggedin.getJourney_name().compareTo("") == 0) {
@@ -131,7 +130,7 @@ public class CurrentJourneyActivity extends AppCompatActivity {
                 // get the logged in user
                 UserEntity user_loggedin = DAO_current_journey.QueryLoggedinUser(true);
                 //  first grab the {journey_name} from the database, then
-                String db_journey_name = user_loggedin.getJourney_name();
+                String db_journey_name; // = user_loggedin.getJourney_name();
                 // if empty string, toast to add a new name please!
                 if ( s.toString().compareTo("") == 0 ) {
                     Toast.makeText(CurrentJourneyActivity.this, "Enter journey name atop!", Toast.LENGTH_SHORT).show();
@@ -139,7 +138,7 @@ public class CurrentJourneyActivity extends AppCompatActivity {
                 }
                 // if its empty, also make it blank, otherwise it will leave the last character. this is a dumb case i shouldnt care about for now. otherwise:
                 // assign the text from the editfield, after a change is made to update the database of this name
-                db_journey_name = edit_journey_name_field.getText().toString(); // does this work?
+                db_journey_name = edit_journey_name_field.getText().toString();
                 // set the new name to our object
                 user_loggedin.setJourney_name(db_journey_name);
                 //  then update the database with this newly formed String. eventually will stop editing and so last saved is what it is
