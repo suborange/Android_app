@@ -1,0 +1,70 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "1dd6cefbf5c6b034410a8efaa81a5098",
+    "entities": [
+      {
+        "tableName": "USER_TABLE",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`User_ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `User_nickname` TEXT, `User_password` TEXT, `journey_name` TEXT, `is_admin` INTEGER NOT NULL, `User_weight` REAL NOT NULL, `logged_in` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "User_ID",
+            "columnName": "User_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "User_nickname",
+            "columnName": "User_nickname",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "User_password",
+            "columnName": "User_password",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "journey_name",
+            "columnName": "journey_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "is_admin",
+            "columnName": "is_admin",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "User_weight",
+            "columnName": "User_weight",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "logged_in",
+            "columnName": "logged_in",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "User_ID"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1dd6cefbf5c6b034410a8efaa81a5098')"
+    ]
+  }
+}
