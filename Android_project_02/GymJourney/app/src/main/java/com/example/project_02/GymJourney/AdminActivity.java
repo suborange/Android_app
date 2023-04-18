@@ -1,7 +1,7 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.01.05.041723
+ * @version 0.02.02.041823
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
  */
@@ -36,9 +36,10 @@ public class AdminActivity extends AppCompatActivity {
      *   luck: says a random funny quote from a small list;
      * 0.01.03.041323: synced a comment
      * 0.01.04.041423: now update query with changes ( logout); you idiot, you put the table instead of the database in DAO..;
-     * TODO 0.01.05.041423: finish admin. implement manage and luck button functionalities. will need to make another layout for managing the accounts. so button will change intent to mgmt_acc intent;
+     * TODO 0.02.02.041823: finish admin. implement manage and luck button functionalities. will need to make another layout for managing the accounts. so button will change intent to mgmt_acc intent;
      *  add are you sure button in layout, something that pops up to confirm the deletion of a user( in the database Delete()) ;
-     *   go through todo's start todoing everything else. setup to github?
+     *  go through todo's start todoing everything else. setup to github?
+     *  todo implement repository, view model, and recycle view for managing the accounts
      */
     // tag
 

@@ -110,4 +110,9 @@ public interface myDAO {
     @Query("SELECT * FROM " + AppDatabase.SESSION_TABLE) // need any ordering here???
     List<SessionEntity> getSessionData(); // what to be returned form this query search?*/
 
+
+    /**
+     *         SETS ENTITY
+     */
+
 }

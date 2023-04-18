@@ -76,7 +76,7 @@ public class CurrentJourneyActivity extends AppCompatActivity {
         UserEntity user_loggedin = DAO_current_journey.QueryLoggedinUser(true); // get the logged in user
         // if null, then create an entity for this new user, leaving the journey_name as blank
         if (user_loggedin.getJourney_name().compareTo("") == 0) {
-            // say something to get user to add ther journey name!
+            // say something to get user to add there journey name!
             Toast.makeText(this, "Please add a journey name!", Toast.LENGTH_SHORT).show();
 
         }

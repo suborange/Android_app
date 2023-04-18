@@ -90,7 +90,7 @@ public class WorkoutActivity extends AppCompatActivity {
                 // with the user, now find the workout that was selected.
                 String db_workout_name;
                 if (s.toString().compareTo("") == 0 ) {
-                    Toast.makeText(WorkoutActivity.this, "Enter journey name atop!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(WorkoutActivity.this, "Enter workout name atop!", Toast.LENGTH_SHORT).show();
                 }
 
                 // if its empty, also make it blank, otherwise it will leave the last character. this is a dumb case i shouldnt care about for now. otherwise:

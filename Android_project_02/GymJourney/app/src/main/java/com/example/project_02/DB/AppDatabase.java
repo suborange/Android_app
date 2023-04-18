@@ -17,7 +17,8 @@ import com.example.project_02.GymJourney.WorkoutEntity;
 @Database(entities = {UserEntity.class}, version = 2 ) // , SessionEntity.class, WorkoutEntity.class
 public abstract class AppDatabase extends RoomDatabase {
     /**
-     * 0.01.00.41023: created all constant variables for possible database as of this version.
+     * 0.01.00.41023: created all constant variables for possible database as of this version;
+     * 0.01.05.041723: add sets table;
      */
 
     public static final String DB_NAME = "JOURNEY_DB";
