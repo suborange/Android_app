@@ -1,7 +1,7 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.01.05.041723
+ * @version 0.02.02.041823
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
  */
@@ -16,6 +16,7 @@ import com.example.project_02.DB.AppDatabase;
 public class UserEntity {
     /**
      * 0.01.00.041023: created and added as entity; added fields;
+     * 0.02.01.041723: added journey name ( and goal) to this table. one user has one journey for now and journey name
      */
 
     @PrimaryKey(autoGenerate = true)
@@ -23,8 +24,9 @@ public class UserEntity {
 
     private String User_nickname; // the user_id entered
     private String User_password; // the password entered
+    private String journey_name; // the users journey name
     private boolean is_admin; // maybe make a byte, and 0 == false, anything else not 0 == true
-    private float User_weight;
+    private float User_weight; // how to delete?
     private boolean logged_in;
 
     public UserEntity() {
@@ -34,7 +36,7 @@ public class UserEntity {
     public UserEntity(String nickname, String password) {
         this.User_nickname = nickname;
         this.User_password = password;
-        this.User_weight = 0.0f;
+        this.journey_name ="";
         this.is_admin = false;
         this.logged_in = true; // should initially set this when the user is created and logged in?
         // TODO maybe switch logged in to false, and log in in the places where it should login
@@ -69,6 +71,14 @@ public class UserEntity {
 
     public void setUser_password(String user_password) {
         User_password = user_password;
+    }
+
+    public String getJourney_name() {
+        return journey_name;
+    }
+
+    public void setJourney_name(String journey_name) {
+        this.journey_name = journey_name;
     }
 
     public boolean getIs_admin() {

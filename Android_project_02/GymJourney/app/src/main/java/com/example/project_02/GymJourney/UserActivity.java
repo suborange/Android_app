@@ -1,7 +1,7 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.01.05.041723
+ * @version 0.02.02.041823
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
  */
@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.project_02.DB.AppDatabase;
 import com.example.project_02.DB.myDAO;
 import com.example.project_02.R;
+import com.example.project_02.databinding.ActivityCurrentJourneyBinding;
 import com.example.project_02.databinding.ActivityUserBinding;
 
 public class UserActivity extends AppCompatActivity {
@@ -87,8 +88,9 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO the current and restart journey buttons will just make a toast for now. soon to come.
-                Toast.makeText(UserActivity.this, "feature coming soon", Toast.LENGTH_SHORT).show();
-
+//                Toast.makeText(UserActivity.this, "feature coming soon", Toast.LENGTH_SHORT).show();
+                    Intent current_journey_activity = CurrentJourneyActivity.IntentFactory(getApplicationContext());
+                    startActivity(current_journey_activity);
             }
         });
 

@@ -1,7 +1,7 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.01.05.041723
+ * @version 0.02.02.041823
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
  */
@@ -16,18 +16,43 @@ import com.example.project_02.DB.AppDatabase;
 public class SessionEntity {
     /**
      * 0.01.00.41023: created and added as entity; added fields;
+     * 0.02.01.041723: correct structure, PK.sessionid, workout id, workout name, and sets count, implemented get/set methods; added sets entity;
+     *
      */
 
-    @PrimaryKey
-    private int workout_ID;
-
+    @PrimaryKey(autoGenerate = true)
     private int session_ID;
+
+    // gunna be grabbed from the workout table
+    private int workout_ID;
     private String workout_name;
-    private int wieght_min;
-    private int weight_max;
     private int sets_count;
-    private int reps_count;
-    private boolean improved;
 
+    public int getSession_ID() {
+        return session_ID;
+    }
 
+    public int getWorkout_ID() {
+        return workout_ID;
+    }
+
+    public void setWorkout_ID(int workout_ID) {
+        this.workout_ID = workout_ID;
+    }
+
+    public String getWorkout_name() {
+        return workout_name;
+    }
+
+    public void setWorkout_name(String workout_name) {
+        this.workout_name = workout_name;
+    }
+
+    public int getSets_count() {
+        return sets_count;
+    }
+
+    public void setSets_count(int sets_count) {
+        this.sets_count = sets_count;
+    }
 }

@@ -1,7 +1,7 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.01.05.041723
+ * @version 0.02.02.041823
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
  */
@@ -13,6 +13,8 @@ import androidx.room.Room;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,6 +65,10 @@ public class LoginActivity extends AppCompatActivity {
         edit_pass_input = binding_login.passwordInput;
         button_sign_in = binding_login.signinButton;
         button_go_home = binding_login.homeButton;
+
+
+
+
 
 
         // get DAO singleton for this activity
@@ -137,6 +143,11 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(main_activity);
             }
         });
+
+
+
+
+
     } // end oncreate
 
 

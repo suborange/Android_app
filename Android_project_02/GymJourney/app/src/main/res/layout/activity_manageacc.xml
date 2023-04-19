@@ -7,6 +7,50 @@
     tools:context=".GymJourney.ManageaccActivity"
     android:background="@color/material_dynamic_tertiary30">
 
+    <TextView
+        android:id="@+id/topbar_left_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text=" Username |"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/topbar_center_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text=" Password |"
+        android:padding="8dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/topbar_left_text"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/topbar_right_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text=" User ID |"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
     <!--    BUTTON TO GO BACK TO ADMIN-->
     <Button
         android:id="@+id/goback_button"
@@ -18,126 +62,22 @@
         android:padding="20sp"
         android:backgroundTint="@color/teal_700"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="65dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
 
         />
-<!--     noww add the rest down here -->
 
-    <!--    " User ID "-->
-<!--    <TextView-->
-<!--        android:id="@+id/User_ID_bg_text"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="User ID"-->
-<!--        android:textStyle="bold"-->
-<!--        android:fontFamily="sans-serif-black"-->
-<!--        android:textSize="29sp"-->
-<!--        android:textColor="@color/purple_700"-->
-<!--        android:gravity="center"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:layout_marginTop="25dp"-->
-<!--        android:layout_marginStart="29dp"-->
-<!--        />-->
-
-    <!--    " User ID "-->
-<!--    <TextView-->
-<!--        android:id="@+id/User_ID_text"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="User ID"-->
-<!--        android:textStyle="bold"-->
-<!--        android:fontFamily="sans-serif-black"-->
-<!--        android:textSize="27sp"-->
-<!--        android:textColor="@color/purple_200"-->
-<!--        android:gravity="center"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:layout_marginTop="23dp"-->
-<!--        android:layout_marginLeft="27dp"-->
-<!--        />-->
-
-    <!--    " Password "-->
-<!--    <TextView-->
-<!--        android:id="@+id/Passwords_bg_text"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Password"-->
-<!--        android:textStyle="bold"-->
-<!--        android:fontFamily="sans-serif-black"-->
-<!--        android:textSize="29sp"-->
-<!--        android:textColor="@color/purple_700"-->
-<!--        android:gravity="center"-->
-<!--        app:layout_constraintStart_toEndOf="@id/User_ID_text"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:layout_marginTop="25dp"-->
-<!--        android:layout_marginStart="29dp"-->
-<!--        />-->
-
-    <!--    " Password "-->
-<!--    <TextView-->
-<!--        android:id="@+id/Password_text"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Password"-->
-<!--        android:textStyle="bold"-->
-<!--        android:fontFamily="sans-serif-black"-->
-<!--        android:textSize="27sp"-->
-<!--        android:textColor="@color/purple_200"-->
-<!--        android:gravity="center"-->
-<!--        app:layout_constraintStart_toEndOf="@id/User_ID_text"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:layout_marginTop="23dp"-->
-<!--        android:layout_marginLeft="27dp"-->
-<!--        />-->
-
-    <!--    " Delete "-->
-<!--    <TextView-->
-<!--        android:id="@+id/Delete_bg_text"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Delete"-->
-<!--        android:textStyle="bold"-->
-<!--        android:fontFamily="sans-serif-black"-->
-<!--        android:textSize="29sp"-->
-<!--        android:textColor="@color/purple_700"-->
-<!--        android:gravity="center"-->
-<!--        app:layout_constraintStart_toEndOf="@id/Password_text"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:layout_marginTop="25dp"-->
-<!--        android:layout_marginLeft="29dp"-->
-<!--        />-->
-
-    <!--    " Delete "-->
-<!--    <TextView-->
-<!--        android:id="@+id/Delete_text"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Delete"-->
-<!--        android:textStyle="bold"-->
-<!--        android:fontFamily="sans-serif-black"-->
-<!--        android:textSize="27sp"-->
-<!--        android:textColor="@color/purple_200"-->
-<!--        android:gravity="center"-->
-<!--        app:layout_constraintStart_toEndOf="@id/Password_text"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:layout_marginTop="23dp"-->
-<!--        android:layout_marginLeft="27dp"-->
-<!--        />-->
-
-    <TableLayout
-        android:id="@+id/table_header_text"
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:divider="@drawable/table_divider"
-        android:showDividers="middle"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        tools:listitem="@layout/user_list"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topbar_left_text"
 
 
         />
-    <!--        android:background="@drawable/table_header_bg"-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
