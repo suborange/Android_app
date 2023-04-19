@@ -7,8 +7,14 @@
  */
 package com.example.project_02.DB;
 
+import android.content.Context;
+import android.os.AsyncTask;
+
+import androidx.annotation.NonNull;
 import androidx.room.Database;
+import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.project_02.GymJourney.SessionEntity;
 import com.example.project_02.GymJourney.UserEntity;
@@ -30,5 +36,44 @@ public abstract class AppDatabase extends RoomDatabase {
     public static final String LOGIN_STATE = "LOGIN_STATE"; //simply the state of the user, are they logged in already. or are they not logged in at all?
 
     public abstract myDAO getmyDAO(); // how does this even work? we never define.
+
+
+    // TODO testing purpose for this next step, got from: https://www.youtube.com/watch?v=HhmA9S53XV8&list=PLrnPJCHvNZuAPyh6nRXsvf5hF48SJWdJb&index=5
+    private static AppDatabase instance;
+    public static synchronized AppDatabase getInstance(Context context) {
+        if (instance == null ) {
+            instance = Room.databaseBuilder(context.getApplicationContext(),AppDatabase.class, DB_NAME)
+                    .fallbackToDestructiveMigration()
+                    // .addCallback(room_callback)
+                    .build();
+        }
+        return instance;
+    }
+
+    private static RoomDatabase.Callback room_callback = new RoomDatabase.Callback() {
+        @Override
+        public void onCreate(@NonNull SupportSQLiteDatabase db) {
+            super.onCreate(db);
+            // new PopulateDbAsyncTask(instance).execute();
+
+
+        }
+    };
+
+    private static  class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void> {
+        private myDAO DAO_populate;
+
+        private PopulateDbAsyncTask(AppDatabase database) {
+            DAO_populate = database.getmyDAO();
+        }
+
+        // To add stuff on creation. i think i will just leave it blank for now
+        @Override
+        protected Void doInBackground(Void... voids) {
+            // DAO_populate.Insert(new UserEntity());
+            return null;
+        }
+    }
+
 
 }

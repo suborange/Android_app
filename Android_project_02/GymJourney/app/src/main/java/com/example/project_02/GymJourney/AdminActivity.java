@@ -39,7 +39,7 @@ public class AdminActivity extends AppCompatActivity {
      * TODO 0.02.02.041823: finish admin. implement manage and luck button functionalities. will need to make another layout for managing the accounts. so button will change intent to mgmt_acc intent;
      *  add are you sure button in layout, something that pops up to confirm the deletion of a user( in the database Delete()) ;
      *  go through todo's start todoing everything else. setup to github?
-     *  todo implement repository, view model, and recycle view for managing the accounts
+     *
      */
     // tag
 
@@ -56,6 +56,8 @@ public class AdminActivity extends AppCompatActivity {
 
     // DAO
     myDAO DAO_admin;
+    
+
 
 
     @Override

@@ -7,6 +7,7 @@
  */
 package com.example.project_02.DB;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -46,6 +47,11 @@ public interface myDAO {
     @Delete
     void Delete(UserEntity... userEntities); // delete an entity
 
+
+    // Delete all the users ( like for an admin)
+    @Query("DELETE FROM " + AppDatabase.USER_TABLE)
+    void DeleteAllUsers();
+
     // TEST FOR IF USERS EXIST THAT ARE LOGGED IN
     @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE EXISTS (SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE logged_in = :log ) ")
     boolean TestExistenceOfUsers(boolean log);
@@ -60,8 +66,8 @@ public interface myDAO {
     @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE EXISTS (SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE user_nickname = :user_name AND user_nickname = :user_name2) ")
     boolean TestExistenceOfNames(String user_name, String user_name2);
 
-    @Query("SELECT * FROM " + AppDatabase.USER_TABLE) // need any ordering here???*
-    List<UserEntity> QueryAllUsers(); // what to be returned form this query search?
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " ORDER BY User_ID DESC") // need any ordering here???*
+    LiveData<List<UserEntity>> QueryAllUsers(); // what to be returned form this query search?
     // query the user with this id typed in the user_id edittext field
     @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE user_nickname = :Userid_name")
     UserEntity QueryThisUser(String Userid_name);
