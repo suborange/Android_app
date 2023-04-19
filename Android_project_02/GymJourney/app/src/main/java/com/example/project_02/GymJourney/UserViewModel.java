@@ -10,7 +10,15 @@ import com.example.project_02.DB.UserRepository;
 
 import java.util.List;
 
+/**     SPECIFICALLY FOR USER VIEW
+ *
+ */
 public class UserViewModel extends AndroidViewModel {
+
+    /** 0.02.02.041823: created file; implemented all methods for insert, update, delete, delete all, and get all users;
+     *
+     *
+     */
     private UserRepository user_repo;
     private LiveData<List<UserEntity>> all_Users;
 

@@ -36,9 +36,7 @@ public class AdminActivity extends AppCompatActivity {
      *   luck: says a random funny quote from a small list;
      * 0.01.03.041323: synced a comment
      * 0.01.04.041423: now update query with changes ( logout); you idiot, you put the table instead of the database in DAO..;
-     * TODO 0.02.02.041823: finish admin. implement manage and luck button functionalities. will need to make another layout for managing the accounts. so button will change intent to mgmt_acc intent;
-     *  add are you sure button in layout, something that pops up to confirm the deletion of a user( in the database Delete()) ;
-     *  go through todo's start todoing everything else. setup to github?
+     * 0.02.02.041823: implement manage button;
      *
      */
     // tag
@@ -88,7 +86,7 @@ public class AdminActivity extends AppCompatActivity {
         String admin_name = loggedin_admin.getUser_nickname();
         text_admin_name.setText(admin_name);
         text_admin_bg_name.setText(admin_name);
-        Toast.makeText(this, "M'lord " + admin_name, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "M'lord " + admin_name, Toast.LENGTH_SHORT).show();
 
         // set on click listeners
         // ** MANAGE **

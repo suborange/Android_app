@@ -25,9 +25,8 @@ import java.util.List;
 public class UserRepository {
 
     /** 0.02.02.041823: created repository to hold the user data info, with view model and recycle view;
-     * updated dependencies in gradle file for all this;
-     *
-     *
+     * updated dependencies in gradle file for all this; implemented insert, update, delete, and delete all users;
+     * implemented async tasks for all of those operations;
      *
      */
 
@@ -41,6 +40,7 @@ public class UserRepository {
         allUsers = DAO_user_repo.QueryAllUsers();
     }
 
+    // ** ASYNC TASKS TO HANDLE SQL OPERATIONS **
     public void Insert(UserEntity user) {
         new InsertUserAsyncTask(DAO_user_repo).execute(user);
     }

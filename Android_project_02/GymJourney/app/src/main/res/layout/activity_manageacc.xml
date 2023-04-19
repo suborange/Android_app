@@ -7,6 +7,50 @@
     tools:context=".GymJourney.ManageaccActivity"
     android:background="@color/material_dynamic_tertiary30">
 
+    <TextView
+        android:id="@+id/topbar_left_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text=" Username |"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/topbar_center_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text=" Password |"
+        android:padding="8dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/topbar_left_text"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/topbar_right_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:textColor="@color/teal_700"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text=" User ID |"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
     <!--    BUTTON TO GO BACK TO ADMIN-->
     <Button
         android:id="@+id/goback_button"
@@ -27,8 +71,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="550dp"
         tools:listitem="@layout/user_list"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topbar_left_text"
+
 
         />
 
