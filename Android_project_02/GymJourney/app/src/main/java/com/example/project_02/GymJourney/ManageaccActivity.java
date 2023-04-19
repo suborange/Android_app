@@ -10,6 +10,8 @@ package com.example.project_02.GymJourney;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.project_02.DB.UserAdapter;
 import com.example.project_02.R;
 import com.example.project_02.databinding.ActivityManageaccBinding;
 
@@ -60,6 +63,16 @@ public class ManageaccActivity extends AppCompatActivity {
             }
         });
 
+        /**     RECYCLER VIEW TESTING
+         *
+         */
+
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+
+        UserAdapter adapter = new UserAdapter();
+        recyclerView.setAdapter(adapter);
 
         // different than from reference video. got from: https://stackoverflow.com/questions/53903762/viewmodelproviders-is-deprecated-in-1-1-0
         user_viewmodel = new ViewModelProvider(this).get(UserViewModel.class);
@@ -68,8 +81,7 @@ public class ManageaccActivity extends AppCompatActivity {
             // triggered everytime the live data changes in the view model ( exactly what i want i think :D)
             @Override
             public void onChanged(List<UserEntity> userEntities) {
-                // TODO update recycler view
-                Toast.makeText(ManageaccActivity.this, "OBSERVING!", Toast.LENGTH_SHORT).show();
+                adapter.setUsers(userEntities);
 
             }
         });

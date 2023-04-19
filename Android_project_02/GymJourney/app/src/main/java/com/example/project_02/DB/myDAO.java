@@ -66,7 +66,7 @@ public interface myDAO {
     @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE EXISTS (SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE user_nickname = :user_name AND user_nickname = :user_name2) ")
     boolean TestExistenceOfNames(String user_name, String user_name2);
 
-    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " ORDER BY User_ID DESC") // need any ordering here???*
+    @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " ORDER BY User_ID ASC") // need any ordering here???*
     LiveData<List<UserEntity>> QueryAllUsers(); // what to be returned form this query search?
     // query the user with this id typed in the user_id edittext field
     @Query("SELECT * FROM " + AppDatabase.USER_TABLE + " WHERE user_nickname = :Userid_name")
