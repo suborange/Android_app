@@ -25,9 +25,11 @@ import com.example.project_02.DB.myDAO;
 import com.example.project_02.R;
 import com.example.project_02.databinding.ActivityWorkoutBinding;
 
+
 public class WorkoutActivity extends AppCompatActivity {
 
     /** 0.01.05.041723: created theses activities: workout, add session, current session, current journey; create IntentFactory
+     * 0.02.03.041923:
      * TODO display the user workout name; display the view of all the workout view data from video;
      *  button should be used to add a session, taking to add session activity;
      *  selecting a session takes user to the current session activity
@@ -99,7 +101,8 @@ public class WorkoutActivity extends AppCompatActivity {
                 // set the new name to our object
                 // TODO fix this part
                 //  then update the database with this newly formed String. eventually will stop editing and so last saved is what it is
-                DAO_workout.Update();
+                //user
+                //DAO_workout.Update();
                 // should have to set text, as it should stay  until screen changes, which is handled onCreate() ( but maybe can do it anyway)
 
             }

@@ -84,17 +84,26 @@ public interface myDAO {
     *//**
      *          WORKOUT ENTITY
      */
-//    @Insert
-//    void Insert(WorkoutEntity... workoutEntities); // insert an entity
-//
-//    @Update
-//    void Update(WorkoutEntity... workoutEntities); // update an entity
-//
-//    @Delete
-//    void Delete(WorkoutEntity... workoutEntities); // delete an entity
-//
-//    @Query("SELECT * FROM " + AppDatabase.WORKOUT_TABLE) // need any ordering here???
-//    List<WorkoutEntity> getWorkoutData(); // what to be returned form this query search?
+    @Insert
+    void Insert(WorkoutEntity... workoutEntities); // insert an entity
+
+    @Update
+    void Update(WorkoutEntity... workoutEntities); // update an entity
+
+    @Delete
+    void Delete(WorkoutEntity... workoutEntities); // delete an entity
+
+    @Query("SELECT * FROM " + AppDatabase.WORKOUT_TABLE + " ORDER BY workout_ID ASC") // need any ordering here???*
+    LiveData<List<WorkoutEntity>> QueryAllWorkouts(); // what to be returned form this query search?
+
+    // find the active workout
+    @Query("SELECT * FROM " + AppDatabase.WORKOUT_TABLE + " WHERE is_active = :active ")
+    WorkoutEntity QueryActiveWorkout(boolean active); // query the users with logged_in = true
+
+    // Delete all the users ( like for an admin)
+    @Query("DELETE FROM " + AppDatabase.WORKOUT_TABLE)
+    void DeleteAllWorkouts();
+
 
     // to query for when the user needs the workout name;
 //    @Query ("SELECT * FROM " + AppDatabase.WORKOUT_TABLE + " WHERE ")

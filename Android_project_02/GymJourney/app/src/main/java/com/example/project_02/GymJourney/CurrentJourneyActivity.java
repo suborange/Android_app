@@ -7,7 +7,13 @@
  */
 package com.example.project_02.GymJourney;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.content.Context;
@@ -21,9 +27,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.project_02.DB.AppDatabase;
+import com.example.project_02.DB.UserAdapter;
+import com.example.project_02.DB.WorkoutAdapter;
 import com.example.project_02.DB.myDAO;
 import com.example.project_02.R;
 import com.example.project_02.databinding.ActivityCurrentJourneyBinding;
+
+import java.util.List;
 
 public class CurrentJourneyActivity extends AppCompatActivity {
 
@@ -42,9 +52,11 @@ public class CurrentJourneyActivity extends AppCompatActivity {
     private ActivityCurrentJourneyBinding binding_current_journey;
     private boolean has_null_name;
 
+    private WorkoutViewModel workout_viewmodel;
+
     EditText edit_journey_name_field;
     Button button_add_workout;
-    Button button_del_workout;
+    Button button_go_back;
 
         // DAO
     myDAO DAO_current_journey;
@@ -60,7 +72,7 @@ public class CurrentJourneyActivity extends AppCompatActivity {
 
         edit_journey_name_field = binding_current_journey.journeyNameField;
         button_add_workout = binding_current_journey.addworkoutButton;
-        button_del_workout = binding_current_journey.deleteworkoutButton;
+        button_go_back = binding_current_journey.gobackButton;
 
         // get DAO singleton for this activity
         DAO_current_journey = Room.databaseBuilder(this, AppDatabase.class, AppDatabase.DB_NAME)
@@ -100,6 +112,7 @@ public class CurrentJourneyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO find a way to add a new workout, maybe it adds to the data view thing, and has a hint that says Enter workout name.
+                // TODO add new workout database item
                 // then click and enter a name; can maybe have it where if the name of any of the workouts is blank, a toast is made saying enter the name.
                 // so cant be clicked or selected until the name is something as it is saved in the database.
 
@@ -108,12 +121,12 @@ public class CurrentJourneyActivity extends AppCompatActivity {
         }); // we are overriding this one specific method from View
 
 
-        // ** DELETE BUTTON **
-        button_del_workout.setOnClickListener(new View.OnClickListener() {
+        // ** GO BACK TO USER ACTIVITY BUTTON **
+        button_go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // maybe need to add a flag, or another button on the side to select if deleted. or maybe swipe to delete the workout ya??
-                // TODO i think swipe to delete is best, so this is gunna be DEPRICATED
+                Intent user_activity = UserActivity.IntentFactory(getApplicationContext());
+                startActivity(user_activity);
 
             }
         });
@@ -151,6 +164,55 @@ public class CurrentJourneyActivity extends AppCompatActivity {
             }
         }); // so this is that pattern, creating a new instance inside the argument. so text watcher is abstract? so it forces the override on all these methods
 
+
+
+
+        /**     RECYCLER VIEW TESTING
+         *
+         */
+
+        RecyclerView recyclerView = findViewById(R.id.recycler_view_workout);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+
+        WorkoutAdapter adapter = new WorkoutAdapter();
+        recyclerView.setAdapter(adapter);
+
+        // different than from reference video. got from: https://stackoverflow.com/questions/53903762/viewmodelproviders-is-deprecated-in-1-1-0
+        workout_viewmodel = new ViewModelProvider(this).get(WorkoutViewModel.class);
+        workout_viewmodel.getAllWorkouts().observe(this, new Observer<List<WorkoutEntity>>() {
+
+            // triggered everytime the live data changes in the view model ( exactly what i want i think :D)
+            @Override
+            public void onChanged(List<WorkoutEntity> Entities) {
+                adapter.setWorkouts(Entities);
+
+            }
+        }); // this observes the view for our list of users entities, and when a change is detected, it updates the view.
+
+
+        // ** SWIPING AN ITEM TO DELETE IT **
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
+                ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                // TODO add the alert dialog to confirm if the user should be deleted or not.
+                WorkoutEntity temp_workout = adapter.getWorkoutAt(viewHolder.getAdapterPosition());
+                String workout_str = temp_workout.getWorkout_name();
+
+
+
+                workout_viewmodel.Delete(adapter.getWorkoutAt(viewHolder.getAdapterPosition()));
+                Toast.makeText(CurrentJourneyActivity.this, "'" + workout_str + "' has been deleted", Toast.LENGTH_SHORT).show();
+
+            }
+        }).attachToRecyclerView(recyclerView);
 
 
     }

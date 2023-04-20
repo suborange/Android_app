@@ -16,12 +16,14 @@ public class SetsEntity {
 
     /**
      * 0.02.02.041823:  created and added as entity; added fields and implemented get/set methods;
+     * 0.02.03.041923: added is active field
      */
 
     private int session_id;
     private int sets_count;
     private int weight;
     private int reps_count;
+    private boolean is_active;
 
     public int getSession_id() {
         return session_id;
@@ -53,5 +55,13 @@ public class SetsEntity {
 
     public void setReps_count(int reps_count) {
         this.reps_count = reps_count;
+    }
+
+    public boolean isIs_active() {
+        return is_active;
+    }
+
+    public void setIs_active(boolean is_active) {
+        this.is_active = is_active;
     }
 }

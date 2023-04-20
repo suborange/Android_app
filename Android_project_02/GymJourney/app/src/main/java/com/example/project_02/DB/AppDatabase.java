@@ -20,7 +20,7 @@ import com.example.project_02.GymJourney.SessionEntity;
 import com.example.project_02.GymJourney.UserEntity;
 import com.example.project_02.GymJourney.WorkoutEntity;
 
-@Database(entities = {UserEntity.class}, version = 2 ) // , SessionEntity.class, WorkoutEntity.class
+@Database(entities = {UserEntity.class, WorkoutEntity.class}, version = 3 ) // , SessionEntity.class, WorkoutEntity.class
 public abstract class AppDatabase extends RoomDatabase {
     /**
      * 0.01.00.41023: created all constant variables for possible database as of this version;
@@ -39,6 +39,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
 
     // TODO testing purpose for this next step, got from: https://www.youtube.com/watch?v=HhmA9S53XV8&list=PLrnPJCHvNZuAPyh6nRXsvf5hF48SJWdJb&index=5
+    // this might cause an issue, depending how the application/context works. this one will only grab the one context on creation.
     private static AppDatabase instance;
     public static synchronized AppDatabase getInstance(Context context) {
         if (instance == null ) {
