@@ -84,12 +84,13 @@
 
         />
 
-    <!--    add the recycler view thing here if possible whatever it is.-->
+    <!--    add the swiping choosing number things from video-->
+
 
 
     <!--    BUTTON TO CONFIRM SESSION-->
     <Button
-        android:id="@+id/add_session_button"
+        android:id="@+id/confirm_session_button"
         android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:textSize="32sp"

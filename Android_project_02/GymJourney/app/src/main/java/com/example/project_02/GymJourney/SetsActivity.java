@@ -4,6 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 
 public class SetsActivity {
+    /** 0.02.04.042023:
+     *    todo need to think about sets layout, and sets_list
+     *     to show the data ( this is probably where another loop is needed)
+     */
 
 
 

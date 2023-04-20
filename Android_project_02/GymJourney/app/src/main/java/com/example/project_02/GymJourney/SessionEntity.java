@@ -40,6 +40,10 @@ public class SessionEntity {
 
     }
 
+    public void setSession_ID(int session_ID) {
+        this.session_ID = session_ID;
+    }
+
     public int getSession_ID() {
         return session_ID;
     }
