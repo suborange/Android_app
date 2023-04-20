@@ -39,6 +39,7 @@ public class ManageaccActivity extends AppCompatActivity {
      *  add are you sure button in layout, something that pops up to confirm the deletion of a user( in the database Delete()) ;
      *  go through todo's start todoing everything else. setup to github?
      *  and luck button functionalities.
+     *  TODO crashes when deleting user that is currently logged in. add that to cannot delete
      *  0.02.03.041923:
      */
 
@@ -74,7 +75,7 @@ public class ManageaccActivity extends AppCompatActivity {
          *
          */
 
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view_manageacc);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
@@ -120,8 +121,6 @@ public class ManageaccActivity extends AppCompatActivity {
 
             }
         }).attachToRecyclerView(recyclerView);
-
-
 
 
     }

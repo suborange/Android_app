@@ -22,7 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:background="@color/material_dynamic_tertiary30"
         />
 
@@ -44,56 +44,87 @@
 <!--        android:background="null"-->
 <!--        />-->
 
+    <!--    ADD RECYCLE VIEW USING THE WORKOUT LIST LAYOUT-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_workout"
+        android:layout_width="wrap_content"
+        android:layout_height="500dp"
+        tools:listitem="@layout/workout_list"
+        app:layout_constraintTop_toBottomOf="@id/journey_name_field"
+        app:layout_constraintStart_toStartOf="parent"
+
+        />
+
 
     <!--    BUTTON TO ADD WORKOUT-->
     <Button
         android:id="@+id/addworkout_button"
-        android:layout_width="180dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:textSize="32sp"
         android:text="+"
+        android:textColor="#00A36C"
         android:fontFamily="sans-serif-black"
         android:padding="16sp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="#6082B6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="120dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="60dp"
 
         />
 
     <!--    BUTTON TO DELETE WORKOUT-->
-    <Button
-        android:id="@+id/deleteworkout_button"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:text="-"
-        android:fontFamily="sans-serif-black"
-        android:padding="16sp"
-        android:backgroundTint="@color/teal_700"
-        app:layout_constraintStart_toEndOf="@id/addworkout_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="120dp"
+<!--    <Button-->
+<!--        android:id="@+id/deleteworkout_button"-->
+<!--        android:layout_width="180dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="32sp"-->
+<!--        android:text="-"-->
+<!--        android:textColor="#D2042D"-->
+<!--        android:fontFamily="sans-serif-black"-->
+<!--        android:padding="16sp"-->
+<!--        android:backgroundTint="#6082B6"-->
+<!--        app:layout_constraintStart_toEndOf="@id/addworkout_button"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginBottom="120dp"-->
 
-        />
+<!--        />-->
 
     <!--    BUTTON TO GO BACK TO USER HOME-->
     <Button
         android:id="@+id/goback_button"
-        android:layout_width="220dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="32sp"
         android:text="Go Back"
+        android:textColor="@color/white"
         android:fontFamily="sans-serif-black"
-        android:padding="14sp"
-        android:backgroundTint="@color/teal_700"
-        app:layout_constraintStart_toStartOf="parent"
+        android:padding="16sp"
+        android:backgroundTint="#6082B6"
+        app:layout_constraintStart_toEndOf="@id/addworkout_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="100dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="60dp"
+
         />
+<!-- OLD DEPRECATED -->
+    <!--    BUTTON TO GO BACK TO USER HOME-->
+<!--    <Button-->
+<!--        android:id="@+id/goback_button"-->
+<!--        android:layout_width="220dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:textSize="32sp"-->
+<!--        android:text="Go Back"-->
+<!--        android:fontFamily="sans-serif-black"-->
+<!--        android:padding="14sp"-->
+<!--        android:backgroundTint="#6082B6"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        android:layout_marginStart="100dp"-->
+<!--        android:layout_marginBottom="30dp"-->
+<!--        />-->
 
     <!--    "App Info "-->
     <TextView

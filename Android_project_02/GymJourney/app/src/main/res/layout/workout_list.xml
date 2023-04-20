@@ -12,44 +12,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:background="@drawable/round_corner">
+        android:background="@drawable/round_corner"
+
+        >
 
 
-<!--        User name-->
+
+        <!--        WORKOUT -->
         <TextView
             android:id="@+id/user_item_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="user_name   |   password   |"
+            android:text=" chest press "
+            android:textSize="28dp"
             android:fontFamily="sans-serif-condensed-medium"
             android:textColor="@color/white"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:maxLines="1"
-            android:layout_toStartOf="@id/userid_item_text"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentStart="true"
             android:ellipsize="end"
-            android:layout_marginStart="9dp"
+            android:layout_marginStart="24dp"
             />
 
 
-<!--        USER ID-->
-        <TextView
-            android:id="@+id/userid_item_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:text="1"
-            android:textStyle="bold|italic"
-            android:fontFamily="sans-serif-black"
-            android:textColor="@color/white"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:layout_marginEnd="9dp"
-            />
+        <!--         do i want this to only be one line????-->
+        <!--        DETAILS -->
+<!--        <TextView-->
+<!--            android:id="@+id/userid_item_text"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="3 sets @ 10 reps @ 50lbs"-->
+<!--            android:textStyle="bold|italic"-->
+<!--            android:fontFamily="sans-serif-black"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textAppearance="@style/TextAppearance.AppCompat.Large"-->
+<!--            android:layout_marginEnd="9dp"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            />-->
 
 
 
 
 
-        </RelativeLayout>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
