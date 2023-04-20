@@ -96,6 +96,10 @@ public interface myDAO {
     @Query("SELECT * FROM " + AppDatabase.WORKOUT_TABLE + " ORDER BY workout_ID ASC") // need any ordering here???*
     LiveData<List<WorkoutEntity>> QueryAllWorkouts(); // what to be returned form this query search?
 
+    // find the entity with this workout ID ( rather by name )
+    @Query("SELECT * FROM " + AppDatabase.WORKOUT_TABLE + " WHERE workout_ID = :ID")
+    WorkoutEntity QueryThisWorkoutID(int ID);
+
     // find the active workout
     @Query("SELECT * FROM " + AppDatabase.WORKOUT_TABLE + " WHERE is_active = :active ")
     WorkoutEntity QueryActiveWorkout(boolean active); // query the users with logged_in = true

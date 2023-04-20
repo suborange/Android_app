@@ -37,7 +37,7 @@ public class WorkoutEntity {
 
     public WorkoutEntity(int User_ID) {
         this.User_ID = User_ID;
-        this.is_active = true; // default to an active workout state?
+        this.is_active = false; // default to an non active workout state?
 
     }
 

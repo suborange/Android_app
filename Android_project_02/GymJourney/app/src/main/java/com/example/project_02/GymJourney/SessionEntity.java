@@ -25,7 +25,7 @@ public class SessionEntity {
 
     // gunna be grabbed from the workout table
     private int workout_ID;
-    private String workout_name;
+    
     private int sets_count;
 
     public int getSession_ID() {
@@ -38,14 +38,6 @@ public class SessionEntity {
 
     public void setWorkout_ID(int workout_ID) {
         this.workout_ID = workout_ID;
-    }
-
-    public String getWorkout_name() {
-        return workout_name;
-    }
-
-    public void setWorkout_name(String workout_name) {
-        this.workout_name = workout_name;
     }
 
     public int getSets_count() {
