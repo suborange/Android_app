@@ -5,7 +5,7 @@
     android:layout_marginEnd="8dp"
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
-    android:backgroundTint="@color/material_dynamic_tertiary30">
+    android:backgroundTint="#22314E">
 
 
     <RelativeLayout
@@ -26,7 +26,7 @@
             android:text=" chest press "
             android:textSize="28dp"
             android:fontFamily="sans-serif-condensed-medium"
-            android:textColor="@color/white"
+            android:textColor="#FAF8D9"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:maxLines="1"
             android:layout_alignParentEnd="true"

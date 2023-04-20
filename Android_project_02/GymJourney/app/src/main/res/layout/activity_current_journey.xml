@@ -5,25 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GymJourney.CurrentJourneyActivity"
-    android:background="@color/material_dynamic_tertiary30">
+    android:background="#22314E">
 
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@drawable/table_divider"
+        app:layout_constraintStart_toStartOf="par ent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <View
+        android:id="@+id/workout_icon"
+        android:layout_width="118dp"
+        android:layout_height="68dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/android_icon_gj_trans3"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        />
 
     <!--    "Name of Journey  "-->
     <EditText
         android:id="@+id/journey_name_field"
-        android:layout_width="410dp"
-        android:layout_height="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:hint="name of journey"
         android:textStyle="bold"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif-condensed"
         android:textSize="30sp"
-        android:textColor="@color/purple_200"
+        android:textColor="#FAF8D9"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/workout_icon"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_margin="10dp"
-        android:background="@color/material_dynamic_tertiary30"
+
         />
 
     <!--    "Journey Goal"-->
@@ -48,10 +67,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_workout"
         android:layout_width="wrap_content"
-        android:layout_height="500dp"
+        android:layout_height="442dp"
         tools:listitem="@layout/workout_list"
-        app:layout_constraintTop_toBottomOf="@id/journey_name_field"
+        app:layout_constraintTop_toBottomOf="@id/workout_icon"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="28dp"
 
         />
 
@@ -135,7 +155,7 @@
         android:textStyle="bold"
         android:fontFamily="sans-serif-black"
         android:textSize="11sp"
-        android:textColor="@color/purple_200"
+        android:textColor="#FAF8D9"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -152,7 +172,7 @@
         android:textStyle="bold"
         android:fontFamily="sans-serif-black"
         android:textSize="8sp"
-        android:textColor="@color/purple_200"
+        android:textColor="#FAF8D9"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

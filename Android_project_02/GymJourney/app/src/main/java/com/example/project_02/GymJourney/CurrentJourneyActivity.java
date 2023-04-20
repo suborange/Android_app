@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -31,7 +30,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.project_02.DB.AppDatabase;
-import com.example.project_02.DB.UserAdapter;
 import com.example.project_02.DB.WorkoutAdapter;
 import com.example.project_02.DB.myDAO;
 import com.example.project_02.R;
@@ -44,20 +42,15 @@ public class CurrentJourneyActivity extends AppCompatActivity {
 
     /** 0.01.05.041723: created theses activities: workout, add session, current session, current journey; create IntentFactory
      *  0.02.01.041723: query the logged user, grabs name and checks if its null or not. then it saves whatever data on every keystroke, so saves journey name correctly;
-     *
-     *
-     * TODO insert the view with all the data needed; add button adds new item, delete item by name?
-     *  selecting a workout should then take it to the workout activity.
-     *  idea: make select workout a click event, and go into the workout by long clicking.
-     *  or just make two buttons, to add one or delete one by name?
+     * 0.02.04.042023: insert the view with all the data needed; add button adds new item;
+     * swiping right on a workout should then take it to the workout activity
      *
      */
 
     private ActivityCurrentJourneyBinding binding_current_journey;
-    private boolean has_null_name;
     String workout_name="";
 
-    private WorkoutViewModel workout_viewmodel;
+    private WorkoutViewModel current_journey_viewmodel;
 
     EditText edit_journey_name_field;
     Button button_add_workout;
@@ -141,10 +134,12 @@ public class CurrentJourneyActivity extends AppCompatActivity {
                             // then click and enter a name;
                             // get the user
                             UserEntity user_logged_in = DAO_current_journey.QueryLoggedinUser(true);
+
                             // get the user ID to now insert
                             WorkoutEntity new_workout = new WorkoutEntity(user_logged_in.getUser_ID()); // set the user ID for this new entry
                             new_workout.setWorkout_name(workout_name); // we grab the name on click, and add it to the database
-                            DAO_current_journey.Insert(new_workout);
+                            // DAO_current_journey.Insert(new_workout); replace with new way to insert
+                            current_journey_viewmodel.Insert(new_workout); // new way using viewmodel
                             // refresh the page? to hopefully get the live data
                             // https://stackoverflow.com/questions/1397361/how-to-restart-activity-in-android
                             Intent refresh = getIntent();
@@ -230,8 +225,8 @@ public class CurrentJourneyActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         // different than from reference video. got from: https://stackoverflow.com/questions/53903762/viewmodelproviders-is-deprecated-in-1-1-0
-        workout_viewmodel = new ViewModelProvider(CurrentJourneyActivity.this).get(WorkoutViewModel.class);
-        workout_viewmodel.getAllWorkouts().observe(CurrentJourneyActivity.this, new Observer<List<WorkoutEntity>>() {
+        current_journey_viewmodel = new ViewModelProvider(CurrentJourneyActivity.this).get(WorkoutViewModel.class);
+        current_journey_viewmodel.getAllWorkouts().observe(CurrentJourneyActivity.this, new Observer<List<WorkoutEntity>>() {
 
             // triggered everytime the live data changes in the view model ( exactly what i want i think :D)
             @Override
@@ -256,7 +251,7 @@ public class CurrentJourneyActivity extends AppCompatActivity {
                 // TODO make this select and change the intent to session activity, and setting this workout active
                 WorkoutEntity temp_workout = adapter.getWorkoutAt(viewHolder.getAdapterPosition());
                 temp_workout.setIs_active(true);
-                workout_viewmodel.Update(temp_workout);
+                current_journey_viewmodel.Update(temp_workout);
 
                 Intent workout_activity = WorkoutActivity.IntentFactory(getApplicationContext());
                 startActivity(workout_activity);
@@ -281,7 +276,7 @@ public class CurrentJourneyActivity extends AppCompatActivity {
 
 
 
-                workout_viewmodel.Delete(adapter.getWorkoutAt(viewHolder.getAdapterPosition()));
+                current_journey_viewmodel.Delete(adapter.getWorkoutAt(viewHolder.getAdapterPosition()));
                 Toast.makeText(CurrentJourneyActivity.this, "'" + workout_str + "' has been deleted", Toast.LENGTH_SHORT).show();
 
             }

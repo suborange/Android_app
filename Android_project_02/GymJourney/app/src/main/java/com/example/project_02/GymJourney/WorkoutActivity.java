@@ -18,6 +18,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project_02.DB.AppDatabase;
@@ -38,8 +39,9 @@ public class WorkoutActivity extends AppCompatActivity {
 
     private ActivityWorkoutBinding binding_workout;
 
-    EditText edit_workout_name_field;
+    TextView edit_workout_name_text;
     Button button_add_session;
+    Button button_goback;
 
     //DAO
     myDAO DAO_workout;
@@ -54,7 +56,7 @@ public class WorkoutActivity extends AppCompatActivity {
         setContentView(binding_workout.getRoot());
 
         button_add_session = binding_workout.addSessionButton;
-        edit_workout_name_field = binding_workout.workoutNameField;
+        edit_workout_name_text = binding_workout.workoutNameText;
 
         // get DAO singletong for this activity
         DAO_workout = Room.databaseBuilder(this, AppDatabase.class, AppDatabase.DB_NAME)
@@ -79,7 +81,7 @@ public class WorkoutActivity extends AppCompatActivity {
         });
 
         // ** EDIT TEXT WORKOUT NAME **
-        edit_workout_name_field.addTextChangedListener(new TextWatcher() {
+        edit_workout_name_text.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -97,7 +99,7 @@ public class WorkoutActivity extends AppCompatActivity {
 
                 // if its empty, also make it blank, otherwise it will leave the last character. this is a dumb case i shouldnt care about for now. otherwise:
                 // assign the text from the editfield, after a change is made to update the database of this name
-                db_workout_name = edit_workout_name_field.getText().toString();
+                db_workout_name = edit_workout_name_text.getText().toString();
                 // set the new name to our object
                 // TODO fix this part
                 //  then update the database with this newly formed String. eventually will stop editing and so last saved is what it is
