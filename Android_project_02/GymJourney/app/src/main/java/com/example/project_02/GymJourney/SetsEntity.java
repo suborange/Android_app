@@ -25,6 +25,13 @@ public class SetsEntity {
     private int reps_count;
     private boolean is_active;
 
+    public SetsEntity(int session_id, int sets_count, int weight, int reps_count) {
+        this.session_id = session_id;
+        this.sets_count = sets_count;
+        this.weight = weight;
+        this.reps_count = reps_count;
+    }
+
     public int getSession_id() {
         return session_id;
     }

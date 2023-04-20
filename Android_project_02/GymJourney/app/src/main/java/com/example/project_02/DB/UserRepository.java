@@ -65,56 +65,56 @@ public class UserRepository {
 
     // ** ASYNC CLASSES AND TASKS TO BE USED FOR THE VIEW MODEL AND RECYCLE VIEW
     private static class InsertUserAsyncTask extends AsyncTask<UserEntity, Void, Void> {
-        private myDAO DAO_insert;
+        private myDAO DAO;
 
         private InsertUserAsyncTask ( myDAO dao) {
-            this.DAO_insert = dao;
+            this.DAO = dao;
         }
         @Override
         protected Void doInBackground(UserEntity... userEntities) {
 
-            DAO_insert.Insert(userEntities[0]);
+            DAO.Insert(userEntities[0]);
             return null;
         }
     }
 
     private static class UpdateUserAsyncTask extends AsyncTask<UserEntity, Void, Void> {
-        private myDAO DAO_insert;
+        private myDAO DAO;
 
         private UpdateUserAsyncTask ( myDAO dao) {
-            this.DAO_insert = dao;
+            this.DAO = dao;
         }
         @Override
         protected Void doInBackground(UserEntity... userEntities) {
 
-            DAO_insert.Update(userEntities[0]);
+            DAO.Update(userEntities[0]);
             return null;
         }
     }
 
     private static class DeleteUserAsyncTask extends AsyncTask<UserEntity, Void, Void> {
-        private myDAO DAO_insert;
+        private myDAO DAO;
 
         private DeleteUserAsyncTask ( myDAO dao) {
-            this.DAO_insert = dao;
+            this.DAO = dao;
         }
         @Override
         protected Void doInBackground(UserEntity... userEntities) {
 
-            DAO_insert.Delete(userEntities[0]);
+            DAO.Delete(userEntities[0]);
             return null;
         }
     }
 
     private static class DeleteAllUserAsyncTask extends AsyncTask<Void, Void, Void> {
-        private myDAO DAO_insert;
+        private myDAO DAO;
 
         private DeleteAllUserAsyncTask ( myDAO dao) {
-            this.DAO_insert = dao;
+            this.DAO = dao;
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            DAO_insert.DeleteAllUsers();
+            DAO.DeleteAllUsers();
             return null;
         }
     }

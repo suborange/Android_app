@@ -7,6 +7,8 @@
  */
 package com.example.project_02.GymJourney;
 
+import android.se.omapi.Session;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -17,7 +19,7 @@ public class SessionEntity {
     /**
      * 0.01.00.41023: created and added as entity; added fields;
      * 0.02.01.041723: correct structure, PK.sessionid, workout id, workout name, and sets count, implemented get/set methods; added sets entity;
-     *
+     * 0.02.04.042023: added constructor, to setup workout id and sets count;
      */
 
     @PrimaryKey(autoGenerate = true)
@@ -27,6 +29,16 @@ public class SessionEntity {
     private int workout_ID;
     
     private int sets_count;
+
+    public SessionEntity () {
+
+    }
+
+    public SessionEntity (int workout_ID, int sets_count) {
+        this.workout_ID = workout_ID;
+        this.sets_count = sets_count;
+
+    }
 
     public int getSession_ID() {
         return session_ID;

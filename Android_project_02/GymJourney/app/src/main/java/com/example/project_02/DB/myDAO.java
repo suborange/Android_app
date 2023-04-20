@@ -116,7 +116,7 @@ public interface myDAO {
 
     /**
      *          SESSION ENTITY
-     *//*
+     */
     @Insert
     void Insert(SessionEntity... sessionEntities); // insert an entity
 
@@ -127,7 +127,11 @@ public interface myDAO {
     void Delete(SessionEntity... sessionEntities); // delete an entity
 
     @Query("SELECT * FROM " + AppDatabase.SESSION_TABLE) // need any ordering here???
-    List<SessionEntity> getSessionData(); // what to be returned form this query search?*/
+    LiveData<List<SessionEntity>> QueryAllSessions(); // what to be returned form this query search?
+
+    @Query("DELETE FROM " + AppDatabase.SESSION_TABLE) // need any ordering here???
+    void DeleteAllSessions(); // what to be returned form this query search?
+
 
 
     /**

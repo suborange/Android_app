@@ -76,6 +76,24 @@
         />
 
 
+    <!--    BUTTON TO GO BACK TO USER HOME-->
+    <Button
+        android:id="@+id/goback_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:text="Go Back"
+        android:textColor="#FAF8D9"
+        android:fontFamily="sans-serif-black"
+        android:padding="16sp"
+        android:backgroundTint="#A42A04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="60dp"
+
+        />
+
     <!--    BUTTON TO ADD WORKOUT-->
     <Button
         android:id="@+id/addworkout_button"
@@ -112,23 +130,7 @@
 
 <!--        />-->
 
-    <!--    BUTTON TO GO BACK TO USER HOME-->
-    <Button
-        android:id="@+id/goback_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:text="Go Back"
-        android:textColor="#FAF8D9"
-        android:fontFamily="sans-serif-black"
-        android:padding="16sp"
-        android:backgroundTint="#A42A04"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="60dp"
 
-        />
 <!-- OLD DEPRECATED -->
     <!--    BUTTON TO GO BACK TO USER HOME-->
 <!--    <Button-->

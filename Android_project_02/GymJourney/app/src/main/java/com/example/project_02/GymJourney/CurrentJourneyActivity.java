@@ -81,9 +81,6 @@ public class CurrentJourneyActivity extends AppCompatActivity {
                 .getmyDAO();
 
 
-        // TODO need to add something for when the database has a value for the journey name. if it does, then  set the edittext to that text
-
-
 
         UserEntity user_loggedin = DAO_current_journey.QueryLoggedinUser(true); // get the logged in user
         // if null, then create an entity for this new user, leaving the journey_name as blank

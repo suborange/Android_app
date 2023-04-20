@@ -5,7 +5,7 @@ import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.project_02.GymJourney.UserEntity;
+
 import com.example.project_02.GymJourney.WorkoutEntity;
 
 import java.util.List;
@@ -62,56 +62,56 @@ public class WorkoutRepository {
 
     // ** ASYNC CLASSES AND TASKS TO BE USED FOR THE VIEW MODEL AND RECYCLE VIEW
     private static class InsertWorkoutAsyncTask extends AsyncTask<WorkoutEntity, Void, Void> {
-        private myDAO DAO_insert;
+        private myDAO DAO;
 
         private InsertWorkoutAsyncTask ( myDAO dao) {
-            this.DAO_insert = dao;
+            this.DAO = dao;
         }
         @Override
         protected Void doInBackground(WorkoutEntity... Entities) {
 
-            DAO_insert.Insert(Entities[0]);
+            DAO.Insert(Entities[0]);
             return null;
         }
     }
 
     private static class UpdateWorkoutAsyncTask extends AsyncTask<WorkoutEntity, Void, Void> {
-        private myDAO DAO_insert;
+        private myDAO DAO;
 
         private UpdateWorkoutAsyncTask ( myDAO dao) {
-            this.DAO_insert = dao;
+            this.DAO = dao;
         }
         @Override
         protected Void doInBackground(WorkoutEntity... Entities) {
 
-            DAO_insert.Update(Entities[0]);
+            DAO.Update(Entities[0]);
             return null;
         }
     }
 
     private static class DeleteWorkoutAsyncTask extends AsyncTask<WorkoutEntity, Void, Void> {
-        private myDAO DAO_insert;
+        private myDAO DAO;
 
         private DeleteWorkoutAsyncTask ( myDAO dao) {
-            this.DAO_insert = dao;
+            this.DAO = dao;
         }
         @Override
         protected Void doInBackground(WorkoutEntity... Entities) {
 
-            DAO_insert.Delete(Entities[0]);
+            DAO.Delete(Entities[0]);
             return null;
         }
     }
 
     private static class DeleteAllWorkoutsAsyncTask extends AsyncTask<Void, Void, Void> {
-        private myDAO DAO_insert;
+        private myDAO DAO;
 
         private DeleteAllWorkoutsAsyncTask ( myDAO dao) {
-            this.DAO_insert = dao;
+            this.DAO = dao;
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            DAO_insert.DeleteAllWorkouts();
+            DAO.DeleteAllWorkouts();
             return null;
         }
     }
