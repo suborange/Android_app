@@ -5,9 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GymJourney.CurrentSessionActivity"
-    android:background="@color/material_dynamic_tertiary30">
+    android:background="#22314E">
 
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@drawable/table_divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <View
+        android:id="@+id/workout_icon"
+        android:layout_width="118dp"
+        android:layout_height="68dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/android_icon_gj_trans3"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        />
 
     <!--    "{workout_name} -  "-->
     <TextView
@@ -16,13 +34,13 @@
         android:layout_height="wrap_content"
         tools:text="{work_name}"
         android:textStyle="bold"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif-black"
         android:textSize="30sp"
-        android:textColor="@color/purple_200"
+        android:textColor="#FAF8D9"
         android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/workout_icon"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
 
         />
 
@@ -31,11 +49,11 @@
         android:id="@+id/session_id_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="{session_id}"
+        tools:text="{id}"
         android:textStyle="bold"
-        android:fontFamily="monospace"
+        android:fontFamily="sans-serif-black"
         android:textSize="30sp"
-        android:textColor="@color/purple_200"
+        android:textColor="#FAF8D9"
         android:gravity="center"
         app:layout_constraintStart_toEndOf="@id/workout_name_text"
         app:layout_constraintTop_toTopOf="parent"
@@ -52,17 +70,28 @@
         android:textStyle="bold"
         android:fontFamily="sans-serif-black"
         android:textSize="30sp"
-        android:textColor="@color/purple_200"
+        android:textColor="#FAF8D9"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/session_id_text"
-        android:layout_margin="10dp"
+        android:layout_marginTop="30dp"
         />
 
     <!--    add the recycler view thing here if possible whatever it is.-->
     <!--    will add textviews of the data, and a button to possible edit it? -->
 
+    <!--    ADD RECYCLE VIEW USING THE WORKOUT LIST LAYOUT-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_session"
+        android:layout_width="wrap_content"
+        android:layout_height="382dp"
+        tools:listitem="@layout/sets_list"
+        app:layout_constraintTop_toBottomOf="@id/workout_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="58dp"
+
+        />
 
 
     <!--    BUTTON TO SELECT REPS-->
@@ -74,7 +103,7 @@
         android:text="reps"
         android:fontFamily="sans-serif-black"
         android:padding="8sp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="#008080"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="15dp"
@@ -91,7 +120,7 @@
         android:text="weight"
         android:fontFamily="sans-serif-black"
         android:padding="8sp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="#008080"
         app:layout_constraintStart_toEndOf="@id/select_reps_button"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="20dp"
@@ -107,8 +136,9 @@
         android:textSize="44sp"
         android:text="+"
         android:fontFamily="sans-serif-black"
+        android:textColor="#FAF8D9"
         android:padding="8sp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="#355E3B"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="15dp"
@@ -124,8 +154,9 @@
         android:textSize="44sp"
         android:text="-"
         android:fontFamily="sans-serif-black"
+        android:textColor="#FAF8D9"
         android:padding="8sp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="#A42A04"
         app:layout_constraintStart_toEndOf="@id/increase_number_button"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="20dp"
@@ -142,7 +173,7 @@
         android:textStyle="bold"
         android:fontFamily="sans-serif-black"
         android:textSize="11sp"
-        android:textColor="@color/purple_200"
+        android:textColor="#FAF8D9"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -159,7 +190,7 @@
         android:textStyle="bold"
         android:fontFamily="sans-serif-black"
         android:textSize="8sp"
-        android:textColor="@color/purple_200"
+        android:textColor="#FAF8D9"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
