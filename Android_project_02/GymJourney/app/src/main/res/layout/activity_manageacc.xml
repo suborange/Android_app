@@ -51,22 +51,7 @@
         />
 
 
-    <!--    BUTTON TO GO BACK TO ADMIN-->
-    <Button
-        android:id="@+id/goback_button"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:text="Go Back"
-        android:fontFamily="sans-serif-black"
-        android:padding="20sp"
-        android:backgroundTint="@color/teal_700"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="65dp"
-        android:layout_marginBottom="30dp"
 
-        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
@@ -77,6 +62,22 @@
         app:layout_constraintTop_toBottomOf="@id/topbar_left_text"
 
 
+        />
+
+    <!--    BUTTON TO GO BACK TO ADMIN-->
+    <Button
+        android:id="@+id/goback_button"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:text="Go Back"
+        android:fontFamily="sans-serif-black"
+        android:padding="14sp"
+        android:backgroundTint="@color/teal_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="30dp"
         />
 
 

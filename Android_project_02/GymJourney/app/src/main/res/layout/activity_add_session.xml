@@ -76,8 +76,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginStart="18dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="122dp"
 
+        />
+
+    <!--    BUTTON TO GO BACK TO WORKOUT HOME-->
+    <Button
+        android:id="@+id/goback_button"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:textSize="32sp"
+        android:text="Go Back"
+        android:fontFamily="sans-serif-black"
+        android:padding="14sp"
+        android:backgroundTint="@color/teal_700"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="100dp"
+        android:layout_marginBottom="30dp"
         />
 
 
