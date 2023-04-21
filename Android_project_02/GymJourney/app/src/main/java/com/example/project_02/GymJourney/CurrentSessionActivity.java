@@ -20,10 +20,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.project_02.DB.AppDatabase;
-import com.example.project_02.DB.CurrentSessionAdapter;
 import com.example.project_02.DB.SessionsAdapter;
 import com.example.project_02.DB.myDAO;
 import com.example.project_02.R;
@@ -44,7 +42,7 @@ public class CurrentSessionActivity extends AppCompatActivity {
      */
 
     private ActivityCurrentSessionBinding binding_currsesh;
-    private CurrentSessionViewModel session_viewmodel;
+    private SessionViewModel session_viewmodel;
 
     TextView text_workout_name;
 
@@ -73,7 +71,7 @@ public class CurrentSessionActivity extends AppCompatActivity {
         text_workout_name.setText(workout_name.getWorkout_name());
 
         // get active session
-        SessionEntity session = DAO_session.QueryActiveSession(true);
+       // SessionEntity session = DAO_session.QueryActiveSession(true);
 
         // get the set data for it all and set it to the recycler view stuff;
 
@@ -89,17 +87,17 @@ public class CurrentSessionActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        CurrentSessionAdapter adapter = new CurrentSessionAdapter();
+        SessionsAdapter adapter = new SessionsAdapter();
         recyclerView.setAdapter(adapter);
 
         // different than from reference video. got from: https://stackoverflow.com/questions/53903762/viewmodelproviders-is-deprecated-in-1-1-0
-        session_viewmodel = new ViewModelProvider(CurrentSessionActivity.this).get(CurrentSessionViewModel.class);
-        session_viewmodel.getAllCurrSessions().observe(CurrentSessionActivity.this, new Observer<List<SetsEntity>>() {
+        session_viewmodel = new ViewModelProvider(CurrentSessionActivity.this).get(SessionViewModel.class);
+        session_viewmodel.getAllSessions().observe(CurrentSessionActivity.this, new Observer<List<SessionEntity>>() {
 
             // triggered everytime the live data changes in the view model ( exactly what i want i think :D)
             @Override
-            public void onChanged(List<SetsEntity> Entities) {
-                adapter.setCurrSessions(Entities);
+            public void onChanged(List<SessionEntity> Entities) {
+                adapter.setSessions(Entities);
 
             }
         }); // this observes the view for our list of users entities, and when a change is detected, it updates the view.

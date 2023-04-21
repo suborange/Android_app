@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.example.project_02.DB.CurrentSessionRepository;
 import com.example.project_02.DB.SessionsRepository;
 import com.example.project_02.DB.WorkoutRepository;
 
@@ -22,17 +21,22 @@ public class SessionViewModel extends AndroidViewModel {
      */
 
     private SessionsRepository sessions_repo;
+   // private WorkoutRepository workout_repo;
     private LiveData<List<SessionEntity>> all_sessions;
+    //private LiveData<List<SessionEntity>> this_workout;
 
 
     public SessionViewModel(@NonNull Application application) {
         super(application);
         sessions_repo = new SessionsRepository(application);
         all_sessions = sessions_repo.getAllSessions(); // from session repository
+       // workout_repo = new WorkoutRepository(application);
 
-
-
+        // query with this id
+        //this_workout = workout_repo.getThisWorkout();
     }
+
+
 
     public void Insert(SessionEntity entity) {
         sessions_repo.Insert(entity);
@@ -53,4 +57,9 @@ public class SessionViewModel extends AndroidViewModel {
     public LiveData<List<SessionEntity>> getAllSessions() {
         return all_sessions;
     }
+
+//    public LiveData<List<SessionEntity>>  getThisWorkout( ) {
+//
+//        return this_workout;
+//    }
 }

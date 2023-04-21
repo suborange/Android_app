@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 
 import com.example.project_02.GymJourney.SessionEntity;
+import com.example.project_02.GymJourney.WorkoutEntity;
 
 import java.util.List;
 
@@ -31,7 +32,9 @@ public class SessionsRepository {
     public SessionsRepository (Application application) {
         AppDatabase database = AppDatabase.getInstance(application); // TOOD might cause errors here?
         DAO_session_repo = database.getmyDAO();
-        allSessions = DAO_session_repo.QueryAllSessions();
+        //WorkoutEntity temp = DAO_session_repo.QueryActiveWorkout(true);
+        //allSessions = DAO_session_repo.QueryThisSession(temp.getWorkout_ID());
+        allSessions =DAO_session_repo.QueryAllSessions();
 
     }
 

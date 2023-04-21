@@ -133,8 +133,9 @@ public interface myDAO {
     @Query("DELETE FROM " + AppDatabase.SESSION_TABLE) // need any ordering here???
     void DeleteAllSessions(); // what to be returned form this query search?
 
-    @Query("SELECT * FROM " + AppDatabase.SESSION_TABLE + " WHERE is_active = :active")
-    SessionEntity QueryActiveSession(boolean active);
+    @Query("SELECT * FROM " + AppDatabase.SESSION_TABLE+ " WHERE workout_ID = :id")
+    LiveData<List<SessionEntity>> QueryThisSession(int id);
+
 
 
 //

@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import androidx.lifecycle.LiveData;
 
 
+import com.example.project_02.GymJourney.SessionEntity;
 import com.example.project_02.GymJourney.WorkoutEntity;
 
 import java.util.List;
@@ -26,11 +27,15 @@ public class WorkoutRepository {
 
     private myDAO DAO_workout_repo;
     private LiveData<List<WorkoutEntity>> allWorkouts;
+    //private WorkoutEntity TheseWorkouts;
+    //private LiveData<List<SessionEntity>> thisWorkouts;
 
     public WorkoutRepository (Application application) {
         AppDatabase database = AppDatabase.getInstance(application); // TOOD might cause errors here?
         DAO_workout_repo = database.getmyDAO();
         allWorkouts = DAO_workout_repo.QueryAllWorkouts();
+        //TheseWorkouts = DAO_workout_repo.QueryActiveWorkout(true);
+        //thisWorkouts = DAO_workout_repo.QueryThisSession(TheseWorkouts.getWorkout_ID());
 
     }
 
@@ -59,6 +64,11 @@ public class WorkoutRepository {
     public LiveData<List<WorkoutEntity>> getAllWorkouts() {
         return allWorkouts;
     }
+
+//    public LiveData<List<SessionEntity>> getThisWorkout() {
+//
+//        return thisWorkouts;
+//    }
 
     // ** ASYNC CLASSES AND TASKS TO BE USED FOR THE VIEW MODEL AND RECYCLE VIEW
     private static class InsertWorkoutAsyncTask extends AsyncTask<WorkoutEntity, Void, Void> {

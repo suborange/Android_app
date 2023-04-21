@@ -18,19 +18,15 @@ import androidx.room.Room;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
+import android.se.omapi.Session;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project_02.DB.AppDatabase;
-import com.example.project_02.DB.CurrentSessionAdapter;
 import com.example.project_02.DB.SessionsAdapter;
-import com.example.project_02.DB.WorkoutAdapter;
 import com.example.project_02.DB.myDAO;
 import com.example.project_02.R;
 import com.example.project_02.databinding.ActivityWorkoutBinding;
@@ -50,7 +46,7 @@ public class WorkoutActivity extends AppCompatActivity {
     private ActivityWorkoutBinding binding_workout;
 
     private SessionViewModel workout_viewmodel;
-    private CurrentSessionViewModel currs_viewmodel;
+
 
     TextView text_workout_name;
     Button button_add_session;
@@ -100,6 +96,8 @@ public class WorkoutActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // write to un activate the workout, by going back
                 WorkoutEntity temp_workout = DAO_workout.QueryActiveWorkout(true);
+
+
                 temp_workout.setIs_active(false);
                 DAO_workout.Update(temp_workout);
                 // go back to the journey page
@@ -149,8 +147,6 @@ public class WorkoutActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 // recyclerView.setBackgroundColor(Color.parseColor("#1434A4"));
-                SessionEntity activate_session = adapter.getSessionAt(viewHolder.getAdapterPosition());
-                activate_session.setIs_active(true); // now we have the active session!!
 
                 // need to open up the session activity for this view page
                 Intent session_activity = CurrentSessionActivity.IntentFactory(getApplicationContext());
