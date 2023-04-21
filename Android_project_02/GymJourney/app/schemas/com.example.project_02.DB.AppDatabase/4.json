@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 3,
-    "identityHash": "9190a96bf56cb3c89508665460309b47",
+    "version": 4,
+    "identityHash": "6f529ff66de4e7931c12dc13cab03576",
     "entities": [
       {
         "tableName": "USER_TABLE",
@@ -97,12 +97,44 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "SESSION_TABLE",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`session_ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `workout_ID` INTEGER NOT NULL, `sets_count` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "session_ID",
+            "columnName": "session_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "workout_ID",
+            "columnName": "workout_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sets_count",
+            "columnName": "sets_count",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "session_ID"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9190a96bf56cb3c89508665460309b47')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6f529ff66de4e7931c12dc13cab03576')"
     ]
   }
 }

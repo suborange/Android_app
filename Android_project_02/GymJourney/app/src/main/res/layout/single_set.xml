@@ -16,7 +16,7 @@
         android:background="@drawable/round_corner">
 
 
-<!--        User name-->
+        <!--        User name-->
         <TextView
             android:id="@+id/user_item_text"
             android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
             />
 
 
-<!--        USER ID-->
+        <!--        USER ID-->
         <TextView
             android:id="@+id/userid_item_text"
             android:layout_width="wrap_content"
@@ -51,6 +51,6 @@
 
 
 
-        </RelativeLayout>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

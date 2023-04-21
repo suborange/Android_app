@@ -1,7 +1,7 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.02.02.041823
+ * @version 0.02.06.042123
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
  */
@@ -39,7 +39,7 @@ public class UserEntity {
         this.journey_name ="";
         this.is_admin = false;
         this.logged_in = true; // should initially set this when the user is created and logged in?
-        // TODO maybe switch logged in to false, and log in in the places where it should login
+        //  maybe switch logged in to false, and log in in the places where it should login
 
     }
 

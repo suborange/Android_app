@@ -1,7 +1,7 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.02.02.041823
+ * @version 0.02.06.042123
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
  */
@@ -25,6 +25,8 @@ import com.example.project_02.DB.myDAO;
 import com.example.project_02.R;
 import com.example.project_02.databinding.ActivityAdminBinding;
 
+import java.util.Random;
+
 public class AdminActivity extends AppCompatActivity {
     /**
      * 0.01.00.041023: created as initial landing page.
@@ -37,6 +39,7 @@ public class AdminActivity extends AppCompatActivity {
      * 0.01.03.041323: synced a comment
      * 0.01.04.041423: now update query with changes ( logout); you idiot, you put the table instead of the database in DAO..;
      * 0.02.02.041823: implement manage button;
+     * 0.02.05.042023:  add luck button functionalities.
      *
      */
     // tag
@@ -68,7 +71,6 @@ public class AdminActivity extends AppCompatActivity {
 
         // setup objects
         text_admin_name = binding_admin.AdminText;
-        text_admin_bg_name = binding_admin.AdminBgText;
         button_manageacc = binding_admin.manageaccButton;
         button_luck = binding_admin.specialAdButton;
         button_logout = binding_admin.logoutAdminButton;
@@ -85,7 +87,7 @@ public class AdminActivity extends AppCompatActivity {
         UserEntity loggedin_admin = DAO_admin.QueryLoggedinUser(true); // should only be the logged in admin user.
         String admin_name = loggedin_admin.getUser_nickname();
         text_admin_name.setText(admin_name);
-        text_admin_bg_name.setText(admin_name);
+
         //Toast.makeText(this, "M'lord " + admin_name, Toast.LENGTH_SHORT).show();
 
         // set on click listeners
@@ -93,7 +95,6 @@ public class AdminActivity extends AppCompatActivity {
         button_manageacc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO make this go to the screen that shows data on all the accounts created so far. ( user table)
                 // for now TOAST
                 // Toast.makeText(AdminActivity.this, "feature coming soon", Toast.LENGTH_SHORT).show();
                 Intent manageacc_activity = ManageaccActivity.IntentFactory(getApplicationContext());
@@ -105,10 +106,14 @@ public class AdminActivity extends AppCompatActivity {
         button_luck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO idk what to do for this secret button. my original idea was to put out funny random phrases or quotes.
-                // for now TOAST
-                Toast.makeText(AdminActivity.this, "feature coming soon", Toast.LENGTH_SHORT).show();
-
+                // what to do for this secret button. my original idea was to put out funny random phrases or quotes.
+                Random random = new Random();
+                int random_int = random.nextInt(6);
+                Classified $zax = new Classified();
+                String[] unknown = $zax.HackTheWorld(random_int);
+                for (String sxczq : unknown) {
+                    Toast.makeText(AdminActivity.this, sxczq, Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -118,17 +123,10 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                // TODO logout button should logout ( try the logged_in item to false), and then go back to the main activity.
-                /*List<UserEntity> all_Users = DAO_User.getLoggedinUsers(true); // should hopefully return all users that have logged_in set to true; TODO TEST THIS
-                // all_Users.get(0).setLogged_in(false); // need to find the right user and make it log out, set to false.
-                for ( UserEntity user : all_Users ) {
-                    user.setLogged_in(false); // now sets all accounts to false, so should log out all accounts ( but really should only be one )
-
-                }*/
                 //UserEntity loggedin_user = DAO_User.getLoggedinUser(true);
                 loggedin_admin.setLogged_in(false); // log out the one user that should be logged in.
                 DAO_admin.Update(loggedin_admin);
-                // TODO update query
+
 
                 // after log out go back to main menu, to sign in or create an account.
                 Intent logout = MainActivity.IntentFactory(getApplicationContext());

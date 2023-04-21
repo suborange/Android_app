@@ -1,14 +1,9 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.02.02.041823
+ * @version 0.02.06.042123
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
- */
-
-/** VERSIONS
- * 0.01.00.041023: updated build.gradle:module:app create packages, and db files, java files and xml files; get enough xml layouts for part 02;
- * check github for version: https://github.com/suborange/Android_app
  */
 package com.example.project_02.GymJourney;
 
@@ -40,12 +35,7 @@ public class MainActivity extends AppCompatActivity {
      *      *      testuser1	    testuser1	no
      *      *      admin2	        admin2	    yes
      *
-     * 0.01.03.041323: added check to see if any user exists with the default user entities, if they don't exist, then create and insert them into database
-     * TODO start and setup all the other activites, until i figure out the table portion
-     *  make the "tables" just one text view, seperated by new lines or something, ( maybe 3 text views controlled by one scroll) and can refresh like he did
-     *  and would have to figure out how to make the buttons to edit or delete work..
-     *  maybe add a field or selection to delete one of them. hm field seems easiest
-     *  
+     * 0.01.03.041323: added check to see if any user exists with the default user entities, if they don't exist, then create and insert them into database     *
      */
     public static final String VERSION = "0.01.00.41023";
 
@@ -83,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 .getmyDAO();
 
 
-        // TODO first check if anything exists, dont wannna add duplicate etc. need to make this safe ( also make this a function? pass myDAO)
+        // first check if anything exists, dont wannna add duplicate etc. need to make this safe ( also make this a function? pass myDAO)
         boolean default_users_exists = DAO_main.TestExistenceOfName("testuser1");
         boolean default_admin_exists = DAO_main.TestExistenceOfName("admin2");
 

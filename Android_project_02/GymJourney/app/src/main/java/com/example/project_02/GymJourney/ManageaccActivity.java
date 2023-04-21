@@ -1,7 +1,7 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.02.02.041823
+ * @version 0.02.06.042123
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
  */
@@ -35,10 +35,8 @@ public class ManageaccActivity extends AppCompatActivity {
      * testing the live data, view model, and recycler view for managing the user accounts here;
      * implement repository, view model, and recycler view for managing the accounts;
      * insert the view with all the data needed;  delete item by swiping;
-     * TODO  add confirmation screen after swiping with alert dialogue;
-     *  add are you sure button in layout, something that pops up to confirm the deletion of a user( in the database Delete()) ;
-     *  go through todo's start todoing everything else. setup to github?
-     *  and luck button functionalities.
+     * 0.02.06.042123:  crashes when deleting user that is currently logged in. add that to cannot delete
+     *
      */
 
     private ActivityManageaccBinding binding_manageacc;
@@ -73,7 +71,7 @@ public class ManageaccActivity extends AppCompatActivity {
          *
          */
 
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view_manageacc);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
@@ -104,12 +102,22 @@ public class ManageaccActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
-                // TODO add the alert dialog to confirm if the user should be deleted or not.
+
                 UserEntity temp_user = adapter.getUserAt(viewHolder.getAdapterPosition());
                 String user_str = temp_user.getUser_nickname();
                 // check if its one of the default users
                 if ((user_str.compareTo("testuser1") == 0) || (user_str.compareTo("admin2")==0)) {
                     Toast.makeText(ManageaccActivity.this, "CANNOT DELETE DEFAULT USER", Toast.LENGTH_SHORT).show();
+                    Intent refresh = ManageaccActivity.IntentFactory(getApplicationContext());
+                    startActivity(refresh);
+                    return;
+
+
+                }
+                if (temp_user.isLogged_in()) {
+                    Toast.makeText(ManageaccActivity.this, "CANNOT DELETE YOURSELF", Toast.LENGTH_SHORT).show();
+                    Intent refresh = ManageaccActivity.IntentFactory(getApplicationContext());
+                    startActivity(refresh);
                     return;
 
                 }
@@ -119,8 +127,6 @@ public class ManageaccActivity extends AppCompatActivity {
 
             }
         }).attachToRecyclerView(recyclerView);
-
-
 
 
     }

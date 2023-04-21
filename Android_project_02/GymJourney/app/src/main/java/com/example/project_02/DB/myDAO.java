@@ -1,7 +1,7 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.01.03.041323:
+ * @version 0.02.06.042123
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
  */
@@ -16,6 +16,7 @@ import androidx.room.Update;
 
 // import com.example.project_02.GymJourney.JourneyEntity;
 import com.example.project_02.GymJourney.SessionEntity;
+import com.example.project_02.GymJourney.SetsEntity;
 import com.example.project_02.GymJourney.UserEntity;
 import com.example.project_02.GymJourney.WorkoutEntity;
 
@@ -84,17 +85,30 @@ public interface myDAO {
     *//**
      *          WORKOUT ENTITY
      */
-//    @Insert
-//    void Insert(WorkoutEntity... workoutEntities); // insert an entity
-//
-//    @Update
-//    void Update(WorkoutEntity... workoutEntities); // update an entity
-//
-//    @Delete
-//    void Delete(WorkoutEntity... workoutEntities); // delete an entity
-//
-//    @Query("SELECT * FROM " + AppDatabase.WORKOUT_TABLE) // need any ordering here???
-//    List<WorkoutEntity> getWorkoutData(); // what to be returned form this query search?
+    @Insert
+    void Insert(WorkoutEntity... workoutEntities); // insert an entity
+
+    @Update
+    void Update(WorkoutEntity... workoutEntities); // update an entity
+
+    @Delete
+    void Delete(WorkoutEntity... workoutEntities); // delete an entity
+
+    @Query("SELECT * FROM " + AppDatabase.WORKOUT_TABLE + " ORDER BY workout_ID ASC") // need any ordering here???*
+    LiveData<List<WorkoutEntity>> QueryAllWorkouts(); // what to be returned form this query search?
+
+    // find the entity with this workout ID ( rather by name )
+    @Query("SELECT * FROM " + AppDatabase.WORKOUT_TABLE + " WHERE workout_ID = :ID")
+    WorkoutEntity QueryThisWorkoutID(int ID);
+
+    // find the active workout
+    @Query("SELECT * FROM " + AppDatabase.WORKOUT_TABLE + " WHERE is_active = :active ")
+    WorkoutEntity QueryActiveWorkout(boolean active); // query the users with logged_in = true
+
+    // Delete all the users ( like for an admin)
+    @Query("DELETE FROM " + AppDatabase.WORKOUT_TABLE)
+    void DeleteAllWorkouts();
+
 
     // to query for when the user needs the workout name;
 //    @Query ("SELECT * FROM " + AppDatabase.WORKOUT_TABLE + " WHERE ")
@@ -103,7 +117,7 @@ public interface myDAO {
 
     /**
      *          SESSION ENTITY
-     *//*
+     */
     @Insert
     void Insert(SessionEntity... sessionEntities); // insert an entity
 
@@ -114,11 +128,32 @@ public interface myDAO {
     void Delete(SessionEntity... sessionEntities); // delete an entity
 
     @Query("SELECT * FROM " + AppDatabase.SESSION_TABLE) // need any ordering here???
-    List<SessionEntity> getSessionData(); // what to be returned form this query search?*/
+    LiveData<List<SessionEntity>> QueryAllSessions(); // what to be returned form this query search?
+
+    @Query("DELETE FROM " + AppDatabase.SESSION_TABLE) // need any ordering here???
+    void DeleteAllSessions(); // what to be returned form this query search?
+
+    @Query("SELECT * FROM " + AppDatabase.SESSION_TABLE+ " WHERE workout_ID = :id")
+    LiveData<List<SessionEntity>> QueryThisSession(int id);
 
 
-    /**
-     *         SETS ENTITY
-     */
+
+//
+//    /**
+//     *         SETS ENTITY
+//     */
+//    @Insert
+//    void Insert(SetsEntity ... setsEntities); // insert an entity
+//
+//    @Update
+//    void Update(SetsEntity ... setsEntities); // update an entity
+//
+//    @Delete
+//    void Delete(SetsEntity ... setsEntities); // delete an entity
+//
+//    @Query("SELECT * FROM " + AppDatabase.SETS_TABLE) // need any ordering here???
+//    LiveData<List<SetsEntity>> QueryAllSets(); // what to be returned form this query search?
+
+
 
 }

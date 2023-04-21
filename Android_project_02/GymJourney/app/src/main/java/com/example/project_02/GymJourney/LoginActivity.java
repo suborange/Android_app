@@ -1,7 +1,7 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.02.02.041823
+ * @version 0.02.06.042123
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
  */
@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity {
         // button on click listeners
         // should determine correct credentials, if not display a message? for now Toast?
 
-        // TODO need to add try catch as to not access a blank database. ( although it should be fine with two uses, 1 user and 1 admin)
+        // need to add try catch as to not access a blank database. ( although it should be fine with two uses, 1 user and 1 admin)
 
         // ** SIGN IN **
         button_sign_in.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +94,6 @@ public class LoginActivity extends AppCompatActivity {
                 //List<UserEntity> sign_user_in = DAO_login.QueryAllUsers();
 
                 // first check to see if some user exists?
-                // TODO how to deal with non-existent record? also check this all works correctly
                 boolean user_exists = DAO_login.TestExistenceOfName(userid_nickname);
 
                 // if user exists do the query for the user name entered, and with that entity/table/item, then check for correct or incorrect password
@@ -107,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (user_pass.compareTo(pass_id) == 0) {
                         // succesful login!
                         User_exists.setLogged_in(true); // LOGGED IN
-                        // TODO update query
+                        // update query
                         DAO_login.Update(User_exists);
 
 

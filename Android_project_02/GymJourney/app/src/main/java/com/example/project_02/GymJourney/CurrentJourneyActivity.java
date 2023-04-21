@@ -1,19 +1,28 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.02.02.041823
+ * @version 0.02.06.042123
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
  */
 package com.example.project_02.GymJourney;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
@@ -21,30 +30,31 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.project_02.DB.AppDatabase;
+import com.example.project_02.DB.WorkoutAdapter;
 import com.example.project_02.DB.myDAO;
 import com.example.project_02.R;
 import com.example.project_02.databinding.ActivityCurrentJourneyBinding;
+
+import java.util.List;
 
 public class CurrentJourneyActivity extends AppCompatActivity {
 
 
     /** 0.01.05.041723: created theses activities: workout, add session, current session, current journey; create IntentFactory
      *  0.02.01.041723: query the logged user, grabs name and checks if its null or not. then it saves whatever data on every keystroke, so saves journey name correctly;
-     *
-     *
-     * TODO insert the view with all the data needed; add button adds new item, delete item by name?
-     *  selecting a workout should then take it to the workout activity.
-     *  idea: make select workout a click event, and go into the workout by long clicking.
-     *  or just make two buttons, to add one or delete one by name?
+     * 0.02.04.042023: insert the view with all the data needed; add button adds new item;
+     * swiping right on a workout should then take it to the workout activity
      *
      */
 
     private ActivityCurrentJourneyBinding binding_current_journey;
-    private boolean has_null_name;
+    String workout_name="";
+
+    private WorkoutViewModel current_journey_viewmodel;
 
     EditText edit_journey_name_field;
     Button button_add_workout;
-    Button button_del_workout;
+    Button button_go_back;
 
         // DAO
     myDAO DAO_current_journey;
@@ -60,16 +70,15 @@ public class CurrentJourneyActivity extends AppCompatActivity {
 
         edit_journey_name_field = binding_current_journey.journeyNameField;
         button_add_workout = binding_current_journey.addworkoutButton;
-        button_del_workout = binding_current_journey.deleteworkoutButton;
+        button_go_back = binding_current_journey.gobackButton;
+
+
 
         // get DAO singleton for this activity
         DAO_current_journey = Room.databaseBuilder(this, AppDatabase.class, AppDatabase.DB_NAME)
                 .allowMainThreadQueries()
                 .build()
                 .getmyDAO();
-
-
-        // TODO need to add something for when the database has a value for the journey name. if it does, then  set the edittext to that text
 
 
 
@@ -99,21 +108,68 @@ public class CurrentJourneyActivity extends AppCompatActivity {
         button_add_workout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO find a way to add a new workout, maybe it adds to the data view thing, and has a hint that says Enter workout name.
-                // then click and enter a name; can maybe have it where if the name of any of the workouts is blank, a toast is made saying enter the name.
-                // so cant be clicked or selected until the name is something as it is saved in the database.
+
+                // got this test from https://stackoverflow.com/questions/10903754/input-text-dialog-android
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(CurrentJourneyActivity.this);
+                builder.setTitle("Enter the name for the workout.");
+
+                final EditText input_workoutname = new EditText(getApplicationContext());
+                input_workoutname.setInputType(InputType.TYPE_CLASS_TEXT);
+                builder.setView(input_workoutname);
+
+                builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        workout_name = input_workoutname.getText().toString();
+                        // add new workout database item
+                        if(workout_name.compareTo("") == 0) {
+                            dialog.cancel(); // exit if its blank and toast | can maybe have it where if the name of any of the workouts is blank, a toast is made saying enter the name.
+                            Toast.makeText(CurrentJourneyActivity.this, "INVALID. RETRY!", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            // then click and enter a name;
+                            // get the user
+                            UserEntity user_logged_in = DAO_current_journey.QueryLoggedinUser(true);
+
+                            // get the user ID to now insert
+                            WorkoutEntity new_workout = new WorkoutEntity(user_logged_in.getUser_ID()); // set the user ID for this new entry
+                            new_workout.setWorkout_name(workout_name); // we grab the name on click, and add it to the database
+                            // DAO_current_journey.Insert(new_workout); replace with new way to insert
+                            current_journey_viewmodel.Insert(new_workout); // new way using viewmodel
+                            // refresh the page? to hopefully get the live data
+                            // https://stackoverflow.com/questions/1397361/how-to-restart-activity-in-android
+                            Intent refresh = getIntent();
+                            finish();
+                            startActivity(refresh);
+                        }
+
+
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();;
+                    }
+                });
+
+                AlertDialog goodAlert = builder.create();
+                goodAlert.show();
+
 
 
             }
         }); // we are overriding this one specific method from View
 
 
-        // ** DELETE BUTTON **
-        button_del_workout.setOnClickListener(new View.OnClickListener() {
+        // ** GO BACK TO USER ACTIVITY BUTTON **
+        button_go_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // maybe need to add a flag, or another button on the side to select if deleted. or maybe swipe to delete the workout ya??
-                // TODO i think swipe to delete is best, so this is gunna be DEPRICATED
+                Intent user_activity = UserActivity.IntentFactory(getApplicationContext());
+                startActivity(user_activity);
 
             }
         });
@@ -151,6 +207,78 @@ public class CurrentJourneyActivity extends AppCompatActivity {
             }
         }); // so this is that pattern, creating a new instance inside the argument. so text watcher is abstract? so it forces the override on all these methods
 
+
+
+
+        /**     RECYCLER VIEW TESTING
+         *
+         */
+
+        RecyclerView recyclerView = findViewById(R.id.recycler_view_workout);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+
+        WorkoutAdapter adapter = new WorkoutAdapter();
+        recyclerView.setAdapter(adapter);
+
+        // different than from reference video. got from: https://stackoverflow.com/questions/53903762/viewmodelproviders-is-deprecated-in-1-1-0
+        current_journey_viewmodel = new ViewModelProvider(CurrentJourneyActivity.this).get(WorkoutViewModel.class);
+        current_journey_viewmodel.getAllWorkouts().observe(CurrentJourneyActivity.this, new Observer<List<WorkoutEntity>>() {
+
+            // triggered everytime the live data changes in the view model ( exactly what i want i think :D)
+            @Override
+            public void onChanged(List<WorkoutEntity> Entities) {
+                adapter.setWorkouts(Entities);
+
+            }
+        }); // this observes the view for our list of users entities, and when a change is detected, it updates the view.
+
+
+        // ** SWIPING AN ITEM TO ACCESS IT **
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
+                ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+                // make this select and change the intent to session activity, and setting this workout active
+                WorkoutEntity temp_workout = adapter.getWorkoutAt(viewHolder.getAdapterPosition());
+                temp_workout.setIs_active(true);
+                current_journey_viewmodel.Update(temp_workout);
+
+                Intent workout_activity = WorkoutActivity.IntentFactory(getApplicationContext());
+                startActivity(workout_activity);
+                return;
+
+            }
+        }).attachToRecyclerView(recyclerView);
+
+        // ** SWIPING AN ITEM TO DELETE IT **
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
+                ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+
+
+                WorkoutEntity temp_workout = adapter.getWorkoutAt(viewHolder.getAdapterPosition());
+                String workout_str = temp_workout.getWorkout_name();
+
+
+
+                current_journey_viewmodel.Delete(adapter.getWorkoutAt(viewHolder.getAdapterPosition()));
+                Toast.makeText(CurrentJourneyActivity.this, "'" + workout_str + "' has been deleted", Toast.LENGTH_SHORT).show();
+
+            }
+        }).attachToRecyclerView(recyclerView);
 
 
     }
