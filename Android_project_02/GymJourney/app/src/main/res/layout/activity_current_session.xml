@@ -85,7 +85,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_session"
         android:layout_width="wrap_content"
-        android:layout_height="382dp"
+        android:layout_height="490dp"
         tools:listitem="@layout/sets_list"
         app:layout_constraintTop_toBottomOf="@id/workout_icon"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,75 +94,6 @@
         />
 
 
-    <!--    BUTTON TO SELECT REPS-->
-    <Button
-        android:id="@+id/select_reps_button"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:text="reps"
-        android:fontFamily="sans-serif-black"
-        android:padding="8sp"
-        android:backgroundTint="#008080"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="118dp"
-
-        />
-
-    <!--    BUTTON TO SELECT WEIGHT-->
-    <Button
-        android:id="@+id/select_weight_button"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:text="weight"
-        android:fontFamily="sans-serif-black"
-        android:padding="8sp"
-        android:backgroundTint="#008080"
-        app:layout_constraintStart_toEndOf="@id/select_reps_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="118dp"
-
-        />
-
-    <!--    BUTTON TO INCREASE NUMBER-->
-    <Button
-        android:id="@+id/increase_number_button"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:textSize="44sp"
-        android:text="+"
-        android:fontFamily="sans-serif-black"
-        android:textColor="#FAF8D9"
-        android:padding="8sp"
-        android:backgroundTint="#355E3B"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="30dp"
-
-        />
-
-    <!--    BUTTON TO DECREASE NUMBER-->
-    <Button
-        android:id="@+id/decrease_number_button"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:textSize="44sp"
-        android:text="-"
-        android:fontFamily="sans-serif-black"
-        android:textColor="#FAF8D9"
-        android:padding="8sp"
-        android:backgroundTint="#A42A04"
-        app:layout_constraintStart_toEndOf="@id/increase_number_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="30dp"
-
-        />
 
     <!--    "App Info "-->
     <TextView

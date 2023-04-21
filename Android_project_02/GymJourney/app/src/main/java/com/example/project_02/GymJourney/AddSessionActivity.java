@@ -45,7 +45,7 @@ public class AddSessionActivity extends AppCompatActivity {
         setContentView(binding_addsesh.getRoot());
 
         text_workout_name = binding_addsesh.workoutNameText;
-        button_confirm_session = binding_addsesh.confirmSessionButton;
+        button_confirm_session = binding_addsesh.confirmButton;
         button_goback = binding_addsesh.gobackButton;
 
 

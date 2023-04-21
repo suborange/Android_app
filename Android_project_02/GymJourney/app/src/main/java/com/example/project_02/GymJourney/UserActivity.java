@@ -61,7 +61,6 @@ public class UserActivity extends AppCompatActivity {
 
         // setup objects
         text_User_name = binding_user.UserText;
-        text_User_name_bg = binding_user.UserBgText;
         button_logout_User = binding_user.logoutUser;
         button_current_journey = binding_user.currentJourneyButton;
         button_restart_journey = binding_user.restartJourneyButton;
@@ -77,7 +76,6 @@ public class UserActivity extends AppCompatActivity {
         UserEntity loggedin_user = DAO_User.QueryLoggedinUser(true); // get the one and only logged in user for this activity
         String user_name = loggedin_user.getUser_nickname();
         text_User_name.setText(user_name);
-        text_User_name_bg.setText(user_name);
         Toast.makeText(this, "Welcome " + user_name, Toast.LENGTH_SHORT).show();
 
 

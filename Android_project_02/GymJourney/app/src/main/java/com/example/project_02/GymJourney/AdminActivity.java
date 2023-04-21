@@ -68,7 +68,6 @@ public class AdminActivity extends AppCompatActivity {
 
         // setup objects
         text_admin_name = binding_admin.AdminText;
-        text_admin_bg_name = binding_admin.AdminBgText;
         button_manageacc = binding_admin.manageaccButton;
         button_luck = binding_admin.specialAdButton;
         button_logout = binding_admin.logoutAdminButton;
@@ -85,7 +84,7 @@ public class AdminActivity extends AppCompatActivity {
         UserEntity loggedin_admin = DAO_admin.QueryLoggedinUser(true); // should only be the logged in admin user.
         String admin_name = loggedin_admin.getUser_nickname();
         text_admin_name.setText(admin_name);
-        text_admin_bg_name.setText(admin_name);
+
         //Toast.makeText(this, "M'lord " + admin_name, Toast.LENGTH_SHORT).show();
 
         // set on click listeners
