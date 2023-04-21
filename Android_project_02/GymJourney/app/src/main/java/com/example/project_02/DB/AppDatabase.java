@@ -1,7 +1,7 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.01.05.041723
+ * @version 0.02.06.042123
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
  */
@@ -39,7 +39,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract myDAO getmyDAO(); // how does this even work? we never define.
 
 
-    // TODO testing purpose for this next step, got from: https://www.youtube.com/watch?v=HhmA9S53XV8&list=PLrnPJCHvNZuAPyh6nRXsvf5hF48SJWdJb&index=5
+    // testing purpose for this next step, got from: https://www.youtube.com/watch?v=HhmA9S53XV8&list=PLrnPJCHvNZuAPyh6nRXsvf5hF48SJWdJb&index=5
     // this might cause an issue, depending how the application/context works. this one will only grab the one context on creation.
     private static AppDatabase instance;
     public static synchronized AppDatabase getInstance(Context context) {

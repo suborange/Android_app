@@ -1,9 +1,9 @@
 /**
  * @author Ethan Bonavida
- * @version 0.02.02.041823
+ * @since April 10, 2023
+ * @version 0.02.06.042123
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
- * @since April 10, 2023
  */
 package com.example.project_02.GymJourney;
 
@@ -168,7 +168,7 @@ public class WorkoutActivity extends AppCompatActivity {
                 // recyclerView.setBackgroundColor(Color.parseColor("#FAF8D9"));
 
 
-                // TODO add the alert dialog to confirm if the user should be deleted or not.
+
                 SessionEntity temp_session = adapter.getSessionAt(viewHolder.getAdapterPosition());
                 String workout_str = String.valueOf(temp_session.getSession_ID());
 

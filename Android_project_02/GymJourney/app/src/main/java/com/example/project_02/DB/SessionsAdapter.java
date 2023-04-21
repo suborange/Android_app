@@ -22,9 +22,8 @@ import java.util.List;
 public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.SessionsHolder>{
 
     /**
-     * 0.02.04.042023: created file;
-     * todo created recycler view, to be used for the admin managing activity;
-     *      * implemented onCreate view holder, onBind view holder, and user holder class with getters and setters;
+     * 0.02.04.042023: created file; created recycler view, to be used for the admin managing activity;
+     *  implemented onCreate view holder, onBind view holder, and user holder class with getters and setters;
      */
 
 
@@ -65,7 +64,7 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.Sessio
 
     public void setSessions(List<SessionEntity> session){
             this.sessions =session;
-            notifyDataSetChanged(); // TODO will be changed later, not generally used, more efficient ways.
+            notifyDataSetChanged();
             }
 
     public SessionEntity getSessionAt(int position){

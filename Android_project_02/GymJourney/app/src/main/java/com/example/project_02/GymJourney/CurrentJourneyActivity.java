@@ -1,7 +1,7 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.02.02.041823
+ * @version 0.02.06.042123
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
  */
@@ -108,7 +108,7 @@ public class CurrentJourneyActivity extends AppCompatActivity {
         button_add_workout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO find a way to add a new workout, maybe it adds to the data view thing, and has a hint that says Enter workout name.
+
                 // got this test from https://stackoverflow.com/questions/10903754/input-text-dialog-android
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(CurrentJourneyActivity.this);
@@ -122,7 +122,7 @@ public class CurrentJourneyActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         workout_name = input_workoutname.getText().toString();
-                        // TODO add new workout database item
+                        // add new workout database item
                         if(workout_name.compareTo("") == 0) {
                             dialog.cancel(); // exit if its blank and toast | can maybe have it where if the name of any of the workouts is blank, a toast is made saying enter the name.
                             Toast.makeText(CurrentJourneyActivity.this, "INVALID. RETRY!", Toast.LENGTH_SHORT).show();
@@ -245,13 +245,14 @@ public class CurrentJourneyActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
-                // TODO make this select and change the intent to session activity, and setting this workout active
+                // make this select and change the intent to session activity, and setting this workout active
                 WorkoutEntity temp_workout = adapter.getWorkoutAt(viewHolder.getAdapterPosition());
                 temp_workout.setIs_active(true);
                 current_journey_viewmodel.Update(temp_workout);
 
                 Intent workout_activity = WorkoutActivity.IntentFactory(getApplicationContext());
                 startActivity(workout_activity);
+                return;
 
             }
         }).attachToRecyclerView(recyclerView);
@@ -267,7 +268,7 @@ public class CurrentJourneyActivity extends AppCompatActivity {
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
 
-                // TODO add the alert dialog to confirm if the user should be deleted or not.
+
                 WorkoutEntity temp_workout = adapter.getWorkoutAt(viewHolder.getAdapterPosition());
                 String workout_str = temp_workout.getWorkout_name();
 

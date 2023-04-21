@@ -65,7 +65,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserHolder> {
 
     public void setUsers(List<UserEntity> users) {
         this.users = users;
-        notifyDataSetChanged(); // TODO will be changed later, not generally used, more efficient ways.
+        notifyDataSetChanged(); 
     }
 
     public UserEntity getUserAt(int position) {
