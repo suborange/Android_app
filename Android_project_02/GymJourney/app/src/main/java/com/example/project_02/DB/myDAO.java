@@ -16,6 +16,7 @@ import androidx.room.Update;
 
 // import com.example.project_02.GymJourney.JourneyEntity;
 import com.example.project_02.GymJourney.SessionEntity;
+import com.example.project_02.GymJourney.SetsEntity;
 import com.example.project_02.GymJourney.UserEntity;
 import com.example.project_02.GymJourney.WorkoutEntity;
 
@@ -137,5 +138,16 @@ public interface myDAO {
     /**
      *         SETS ENTITY
      */
+    @Insert
+    void Insert(SetsEntity ... setsEntities); // insert an entity
+
+    @Update
+    void Update(SetsEntity ... setsEntities); // update an entity
+
+    @Delete
+    void Delete(SetsEntity ... setsEntities); // delete an entity
+
+    @Query("SELECT * FROM " +AppDatabase.SETS_TABLE + " WHERE is_active = :active")
+    SetsEntity QueryActiveSet(boolean active);
 
 }

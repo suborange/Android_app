@@ -30,6 +30,7 @@ public class SetsEntity {
         this.sets_count = sets_count;
         this.weight = weight;
         this.reps_count = reps_count;
+        this.is_active = false;
     }
 
     public int getSession_id() {

@@ -38,6 +38,7 @@
         android:textSize="30sp"
         android:textColor="#FAF8D9"
         android:gravity="center"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/workout_icon"
         app:layout_constraintTop_toTopOf="parent"

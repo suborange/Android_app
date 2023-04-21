@@ -95,6 +95,7 @@
         android:textColor="#FAF8D9"
         android:gravity="center"
         android:backgroundTint="@color/purple_200"
+        android:inputType="text"
         app:layout_constraintStart_toEndOf="@id/User_ID_text"
         app:layout_constraintTop_toTopOf="@id/User_ID_text"
 
@@ -129,6 +130,7 @@
         android:textColor="#FAF8D9"
         android:gravity="center"
         android:backgroundTint="@color/purple_200"
+        android:inputType="text"
         app:layout_constraintStart_toEndOf="@id/User_ID_text"
         app:layout_constraintTop_toTopOf="@id/Password_text"
 
