@@ -37,19 +37,14 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutH
 
     @Override
     public void onBindViewHolder(@NonNull WorkoutHolder holder, int position) {
+        // this is for the current journey, and workout names
         WorkoutEntity current_workout = workouts.get(position);
 
         String workout_item = current_workout.getWorkout_name();
         holder.text_workout_item.setText(workout_item);
 
-//        String session_item = "";
-//        session_item = String.valueOf(current_session.getSets_count());
-//        session_item += " sets@ ";
-//        session_item += String.valueOf(current_session.getReps_count());
-//        session_item += " reps@ +/-";
-//        session_item += String.valueOf(current_session.getWeight());
-//        session_item += " lbs";
-//        holder.text_session_item.setText(session_item);
+
+
     }
 
     @Override

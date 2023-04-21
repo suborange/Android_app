@@ -42,11 +42,13 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.Sessio
     public void onBindViewHolder(@NonNull SessionsHolder holder,int position){
         SessionEntity current_session= sessions.get(position);
         String session_item = "";
-        session_item += String.valueOf(current_session.getSets_count());
-        session_item += " sets ";
 
-
-        // finish this part and then set it.
+        session_item = String.valueOf(current_session.getSets_count());
+        session_item += " sets@ ";
+        session_item += String.valueOf(current_session.getReps_count());
+        session_item += " reps@ +/-";
+        session_item += String.valueOf(current_session.getWeight());
+        session_item += " lbs";
         holder.text_session_item.setText(session_item);
 
         // reuse session_item

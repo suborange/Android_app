@@ -25,10 +25,10 @@ public class CurrentSessionAdapter extends RecyclerView.Adapter<CurrentSessionAd
     /** 0.02.05.042023: created and implemented this adapter for the session
      *
      */
-    private List<SessionEntity> sessions = new ArrayList<>();
+    private List<SetsEntity> sessions = new ArrayList<>();
 
-    // need DAO to acces sets here
-    myDAO DAO_set;
+
+
 
     @NonNull
     @Override
@@ -51,12 +51,12 @@ public class CurrentSessionAdapter extends RecyclerView.Adapter<CurrentSessionAd
         return sessions.size();
     }
 
-    public void setSessions(List<SessionEntity> sessions) {
+    public void setCurrSessions(List<SetsEntity> sessions) {
         this.sessions = sessions;
         notifyDataSetChanged();
     }
 
-    public SessionEntity getSessionAt(int position) {
+    public SetsEntity getSessionAt(int position) {
         return sessions.get(position);
     }
 

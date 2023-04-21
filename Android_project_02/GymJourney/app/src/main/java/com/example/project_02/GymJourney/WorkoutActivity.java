@@ -1,9 +1,9 @@
 /**
  * @author Ethan Bonavida
- * @since April 10, 2023
  * @version 0.02.02.041823
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
+ * @since April 10, 2023
  */
 package com.example.project_02.GymJourney;
 
@@ -28,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.project_02.DB.AppDatabase;
+import com.example.project_02.DB.CurrentSessionAdapter;
 import com.example.project_02.DB.SessionsAdapter;
 import com.example.project_02.DB.WorkoutAdapter;
 import com.example.project_02.DB.myDAO;
@@ -49,6 +50,7 @@ public class WorkoutActivity extends AppCompatActivity {
     private ActivityWorkoutBinding binding_workout;
 
     private SessionViewModel workout_viewmodel;
+    private CurrentSessionViewModel currs_viewmodel;
 
     TextView text_workout_name;
     Button button_add_session;
@@ -79,8 +81,6 @@ public class WorkoutActivity extends AppCompatActivity {
         WorkoutEntity temp = DAO_workout.QueryActiveWorkout(true);
         String workout_name = temp.getWorkout_name();
         text_workout_name.setText(workout_name);
-
-
 
 
         // ** ADD SESSION **
@@ -121,6 +121,7 @@ public class WorkoutActivity extends AppCompatActivity {
         SessionsAdapter adapter = new SessionsAdapter();
         recyclerView.setAdapter(adapter);
 
+
         // different than from reference video. got from: https://stackoverflow.com/questions/53903762/viewmodelproviders-is-deprecated-in-1-1-0
         workout_viewmodel = new ViewModelProvider(WorkoutActivity.this).get(SessionViewModel.class);
         workout_viewmodel.getAllSessions().observe(WorkoutActivity.this, new Observer<List<SessionEntity>>() {
@@ -130,8 +131,11 @@ public class WorkoutActivity extends AppCompatActivity {
             public void onChanged(List<SessionEntity> Entities) {
                 adapter.setSessions(Entities);
 
+
             }
         }); // this observes the view for our list of users entities, and when a change is detected, it updates the view.
+
+
 
 
         // ** SWIPING AN ITEM TO ACCESS IT **
@@ -173,15 +177,11 @@ public class WorkoutActivity extends AppCompatActivity {
                 String workout_str = String.valueOf(temp_session.getSession_ID());
 
 
-
                 workout_viewmodel.Delete(adapter.getSessionAt(viewHolder.getAdapterPosition()));
                 Toast.makeText(WorkoutActivity.this, "'" + workout_str + "' deleted", Toast.LENGTH_SHORT).show();
 
             }
         }).attachToRecyclerView(recyclerView);
-
-
-
 
 
     }

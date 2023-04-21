@@ -28,15 +28,19 @@ public class SessionEntity {
     // gunna be grabbed from the workout table
     private int workout_ID;
     private int sets_count;
+    private int weight;
+    private int reps_count;
     boolean is_active;
 
     public SessionEntity () {
 
     }
 
-    public SessionEntity (int workout_ID, int sets_count) {
+    public SessionEntity (int workout_ID, int sets_count, int weight, int reps) {
         this.workout_ID = workout_ID;
         this.sets_count = sets_count;
+        this.weight = weight;
+        this.reps_count = reps;
         this.is_active = false;
 
     }
@@ -73,5 +77,21 @@ public class SessionEntity {
 
     public void setSets_count(int sets_count) {
         this.sets_count = sets_count;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public int getReps_count() {
+        return reps_count;
+    }
+
+    public void setReps_count(int reps_count) {
+        this.reps_count = reps_count;
     }
 }

@@ -137,21 +137,21 @@ public interface myDAO {
     SessionEntity QueryActiveSession(boolean active);
 
 
-
-    /**
-     *         SETS ENTITY
-     */
-    @Insert
-    void Insert(SetsEntity ... setsEntities); // insert an entity
-
-    @Update
-    void Update(SetsEntity ... setsEntities); // update an entity
-
-    @Delete
-    void Delete(SetsEntity ... setsEntities); // delete an entity
-
-    @Query("SELECT * FROM " + AppDatabase.SETS_TABLE) // need any ordering here???
-    LiveData<List<SetsEntity>> QueryAllSets(); // what to be returned form this query search?
+//
+//    /**
+//     *         SETS ENTITY
+//     */
+//    @Insert
+//    void Insert(SetsEntity ... setsEntities); // insert an entity
+//
+//    @Update
+//    void Update(SetsEntity ... setsEntities); // update an entity
+//
+//    @Delete
+//    void Delete(SetsEntity ... setsEntities); // delete an entity
+//
+//    @Query("SELECT * FROM " + AppDatabase.SETS_TABLE) // need any ordering here???
+//    LiveData<List<SetsEntity>> QueryAllSets(); // what to be returned form this query search?
 
 
 

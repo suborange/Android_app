@@ -21,7 +21,7 @@ import com.example.project_02.GymJourney.SetsEntity;
 import com.example.project_02.GymJourney.UserEntity;
 import com.example.project_02.GymJourney.WorkoutEntity;
 
-@Database(entities = {UserEntity.class, WorkoutEntity.class, SessionEntity.class, SetsEntity.class}, version = 5 ) // , SessionEntity.class, WorkoutEntity.class
+@Database(entities = {UserEntity.class, WorkoutEntity.class, SessionEntity.class}, version = 6 ) // , SessionEntity.class, WorkoutEntity.class
 public abstract class AppDatabase extends RoomDatabase {
     /**
      * 0.01.00.41023: created all constant variables for possible database as of this version;

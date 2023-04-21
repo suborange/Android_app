@@ -21,27 +21,27 @@ public class CurrentSessionRepository {
      */
 
     private myDAO DAO_session_repo;
-    private LiveData<List<SessionEntity>> allSessions;
+    private LiveData<List<SetsEntity>> allSessions;
 
     public CurrentSessionRepository(Application application) {
         AppDatabase database = AppDatabase.getInstance(application); // TOOD might cause errors here?
         DAO_session_repo = database.getmyDAO();
-        allSessions = DAO_session_repo.QueryAllSessions();
+        allSessions = DAO_session_repo.QueryAllSets();
 
     }
 
     // ** ASYNC TASKS TO HANDLE SQL OPERATIONS **
-    public void Insert(SessionEntity entity) {
+    public void Insert(SetsEntity entity) {
         new CurrentSessionRepository.InsertSessionAsyncTask(DAO_session_repo).execute(entity);
 
     }
 
-    public void Update(SessionEntity entity) {
+    public void Update(SetsEntity entity) {
         new CurrentSessionRepository.UpdateSessionAsyncTask(DAO_session_repo).execute(entity);
 
     }
 
-    public void Delete(SessionEntity entity) {
+    public void Delete(SetsEntity entity) {
         new CurrentSessionRepository.DeleteSessionAsyncTask(DAO_session_repo).execute(entity);
 
     }
@@ -52,47 +52,47 @@ public class CurrentSessionRepository {
     }
 
     // this is called in the current session view model, using this repository
-    public LiveData<List<SessionEntity>> getAllCurrSessions() {
+    public LiveData<List<SetsEntity>> getAllCurrSessions() {
         return allSessions;
     }
 
     // ** ASYNC CLASSES AND TASKS TO BE USED FOR THE VIEW MODEL AND RECYCLE VIEW
-    private static class InsertSessionAsyncTask extends AsyncTask<SessionEntity, Void, Void> {
+    private static class InsertSessionAsyncTask extends AsyncTask<SetsEntity, Void, Void> {
         private myDAO DAO;
 
         private InsertSessionAsyncTask(myDAO dao) {
             this.DAO = dao;
         }
         @Override
-        protected Void doInBackground(SessionEntity... Entities) {
+        protected Void doInBackground(SetsEntity... Entities) {
 
             DAO.Insert(Entities[0]);
             return null;
         }
     }
 
-    private static class UpdateSessionAsyncTask extends AsyncTask<SessionEntity, Void, Void> {
+    private static class UpdateSessionAsyncTask extends AsyncTask<SetsEntity, Void, Void> {
         private myDAO DAO;
 
         private UpdateSessionAsyncTask(myDAO dao) {
             this.DAO = dao;
         }
         @Override
-        protected Void doInBackground(SessionEntity... Entities) {
+        protected Void doInBackground(SetsEntity... Entities) {
 
             DAO.Update(Entities[0]);
             return null;
         }
     }
 
-    private static class DeleteSessionAsyncTask extends AsyncTask<SessionEntity, Void, Void> {
+    private static class DeleteSessionAsyncTask extends AsyncTask<SetsEntity, Void, Void> {
         private myDAO DAO;
 
         private DeleteSessionAsyncTask(myDAO dao) {
             this.DAO = dao;
         }
         @Override
-        protected Void doInBackground(SessionEntity... Entities) {
+        protected Void doInBackground(SetsEntity... Entities) {
 
             DAO.Delete(Entities[0]);
             return null;

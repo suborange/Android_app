@@ -93,19 +93,19 @@ public class AddSessionActivity extends AppCompatActivity {
                 int w_id = workout.getWorkout_ID();
 
                 // in the session, set the set counts
-                SessionEntity session = new SessionEntity(w_id, set_count);
+                SessionEntity session = new SessionEntity(w_id, set_count, weight_initial, rep_count);
                 // now add a session with this workout id and sets
                 DAO_addsesh.Insert(session);
 
                 // grab all data needed
-                int s_id = session.getSession_ID();
+                //int s_id = session.getSession_ID();
                 // now go into the set entity, and give these initial settings for all sets.
-                // TODO make sure to check bounds here ( should be <= , so like 1-4)
-                for (int i =1; i<= session.getSets_count(); i++ ) {
-                    // loop from 1-max, inserting i, 1- max
-                    SetsEntity sets = new SetsEntity(s_id, i, weight_initial, rep_count);
-                    DAO_addsesh.Insert(sets); // should insert how ever many values now
-                }
+                //  make sure to check bounds here ( should be <= , so like 1-4)
+//                for (int i =1; i<= session.getSets_count(); i++ ) {
+//                    // loop from 1-max, inserting i, 1- max
+//                    SetsEntity sets = new SetsEntity(s_id, i, weight_initial, rep_count);
+//                    DAO_addsesh.Insert(sets); // should insert how ever many values now
+//                }
 
                 // after adding, now go back to workout screen
                 Intent workoutActivity = WorkoutActivity.IntentFactory(getApplicationContext());

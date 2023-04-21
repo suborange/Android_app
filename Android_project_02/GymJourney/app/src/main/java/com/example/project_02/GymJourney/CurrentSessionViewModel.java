@@ -22,7 +22,7 @@ public class CurrentSessionViewModel extends AndroidViewModel {
      */
 
     private CurrentSessionRepository session_repo;
-    private LiveData<List<SessionEntity>> all_Sessions;
+    private LiveData<List<SetsEntity>> all_Sessions;
 
     public CurrentSessionViewModel(@NonNull Application application) {
         super(application);
@@ -30,15 +30,15 @@ public class CurrentSessionViewModel extends AndroidViewModel {
         all_Sessions = session_repo.getAllCurrSessions(); // from workout repository
     }
 
-    public void Insert(SessionEntity entity) {
+    public void Insert(SetsEntity entity) {
         session_repo.Insert(entity);
     }
 
-    public void Update(SessionEntity entity) {
+    public void Update(SetsEntity entity) {
         session_repo.Update(entity);
     }
 
-    public void Delete(SessionEntity entity) {
+    public void Delete(SetsEntity entity) {
         session_repo.Delete(entity);
     }
 
@@ -46,7 +46,7 @@ public class CurrentSessionViewModel extends AndroidViewModel {
         session_repo.DeleteAllWorkouts();
     }
 
-    public LiveData<List<SessionEntity>> getAllCurrSessions() {
+    public LiveData<List<SetsEntity>> getAllCurrSessions() {
         return all_Sessions;
     }
 }

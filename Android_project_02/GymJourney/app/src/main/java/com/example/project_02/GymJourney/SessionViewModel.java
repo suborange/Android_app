@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import com.example.project_02.DB.CurrentSessionRepository;
 import com.example.project_02.DB.SessionsRepository;
 import com.example.project_02.DB.WorkoutRepository;
 
@@ -23,10 +24,14 @@ public class SessionViewModel extends AndroidViewModel {
     private SessionsRepository sessions_repo;
     private LiveData<List<SessionEntity>> all_sessions;
 
+
     public SessionViewModel(@NonNull Application application) {
         super(application);
         sessions_repo = new SessionsRepository(application);
         all_sessions = sessions_repo.getAllSessions(); // from session repository
+
+
+
     }
 
     public void Insert(SessionEntity entity) {

@@ -17,7 +17,7 @@ public class SetsEntity {
 
     /**
      * 0.02.02.041823:  created and added as entity; added fields and implemented get/set methods;
-     * 0.02.03.041923: added is active field
+     * 0.02.03.041923: added is active field; -- DEPRECATED
      */
     @PrimaryKey(autoGenerate = true)
     private boolean useless_bullshit_because_it_threw_an_error_AH; // bullshit to make this database work

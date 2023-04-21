@@ -68,6 +68,10 @@ public class CurrentSessionActivity extends AppCompatActivity {
                 .build()
                 .getmyDAO();
 
+        // get active workout for name
+        WorkoutEntity workout_name = DAO_session.QueryActiveWorkout(true);
+        text_workout_name.setText(workout_name.getWorkout_name());
+
         // get active session
         SessionEntity session = DAO_session.QueryActiveSession(true);
 
@@ -90,12 +94,12 @@ public class CurrentSessionActivity extends AppCompatActivity {
 
         // different than from reference video. got from: https://stackoverflow.com/questions/53903762/viewmodelproviders-is-deprecated-in-1-1-0
         session_viewmodel = new ViewModelProvider(CurrentSessionActivity.this).get(CurrentSessionViewModel.class);
-        session_viewmodel.getAllCurrSessions().observe(CurrentSessionActivity.this, new Observer<List<SessionEntity>>() {
+        session_viewmodel.getAllCurrSessions().observe(CurrentSessionActivity.this, new Observer<List<SetsEntity>>() {
 
             // triggered everytime the live data changes in the view model ( exactly what i want i think :D)
             @Override
-            public void onChanged(List<SessionEntity> Entities) {
-                adapter.setSessions(Entities);
+            public void onChanged(List<SetsEntity> Entities) {
+                adapter.setCurrSessions(Entities);
 
             }
         }); // this observes the view for our list of users entities, and when a change is detected, it updates the view.
@@ -134,15 +138,15 @@ public class CurrentSessionActivity extends AppCompatActivity {
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 // recyclerView.setBackgroundColor(Color.parseColor("#FAF8D9"));
 
-
-                // TODO add the alert dialog to confirm if the user should be deleted or not.
-                SessionEntity temp_session = adapter.getSessionAt(viewHolder.getAdapterPosition());
-                String workout_str = String.valueOf(temp_session.getSession_ID());
-
-
-
-                workout_viewmodel.Delete(adapter.getSessionAt(viewHolder.getAdapterPosition()));
-                Toast.makeText(WorkoutActivity.this, "'" + workout_str + "' deleted", Toast.LENGTH_SHORT).show();
+//
+//                // TODO add the alert dialog to confirm if the user should be deleted or not.
+//                SessionEntity temp_session = adapter.getSessionAt(viewHolder.getAdapterPosition());
+//                String workout_str = String.valueOf(temp_session.getSession_ID());
+//
+//
+//
+//                workout_viewmodel.Delete(adapter.getSessionAt(viewHolder.getAdapterPosition()));
+//                Toast.makeText(WorkoutActivity.this, "'" + workout_str + "' deleted", Toast.LENGTH_SHORT).show();
 
             }
         }).attachToRecyclerView(recyclerView);
