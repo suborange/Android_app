@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.project_02.GymJourney.SessionEntity;
+import com.example.project_02.GymJourney.SetsEntity;
 import com.example.project_02.GymJourney.WorkoutEntity;
 import com.example.project_02.R;
 
@@ -41,25 +42,18 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.Sessio
     public void onBindViewHolder(@NonNull SessionsHolder holder,int position){
         SessionEntity current_session= sessions.get(position);
         String session_item = "";
+        session_item += String.valueOf(current_session.getSets_count());
+        session_item += " sets ";
 
-        session_item += " sets @";
-
-        session_item +=" reps @";
-
-        session_item +=" - ";
-
-        session_item +=" lbs";
 
         // finish this part and then set it.
+        holder.text_session_item.setText(session_item);
 
         // reuse session_item
         session_item = "#" + String.valueOf(current_session.getSession_ID());
         holder.text_session_id.setText(session_item);
 
 
-        // TODO
-//            String session_item=current_session.get();
-//            holder.text_session_item.setText(session_item);
             }
 
     @Override

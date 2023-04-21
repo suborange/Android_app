@@ -133,6 +133,9 @@ public interface myDAO {
     @Query("DELETE FROM " + AppDatabase.SESSION_TABLE) // need any ordering here???
     void DeleteAllSessions(); // what to be returned form this query search?
 
+    @Query("SELECT * FROM " + AppDatabase.SESSION_TABLE + " WHERE is_active = :active")
+    SessionEntity QueryActiveSession(boolean active);
+
 
 
     /**
@@ -147,7 +150,9 @@ public interface myDAO {
     @Delete
     void Delete(SetsEntity ... setsEntities); // delete an entity
 
-    @Query("SELECT * FROM " +AppDatabase.SETS_TABLE + " WHERE is_active = :active")
-    SetsEntity QueryActiveSet(boolean active);
+    @Query("SELECT * FROM " + AppDatabase.SETS_TABLE) // need any ordering here???
+    LiveData<List<SetsEntity>> QueryAllSets(); // what to be returned form this query search?
+
+
 
 }

@@ -8,6 +8,7 @@
 package com.example.project_02.GymJourney;
 
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import com.example.project_02.DB.AppDatabase;
 
@@ -18,6 +19,8 @@ public class SetsEntity {
      * 0.02.02.041823:  created and added as entity; added fields and implemented get/set methods;
      * 0.02.03.041923: added is active field
      */
+    @PrimaryKey(autoGenerate = true)
+    private boolean useless_bullshit_because_it_threw_an_error_AH; // bullshit to make this database work
 
     private int session_id;
     private int sets_count;
@@ -71,5 +74,13 @@ public class SetsEntity {
 
     public void setIs_active(boolean is_active) {
         this.is_active = is_active;
+    }
+
+    public boolean isUseless_bullshit_because_it_threw_an_error_AH() {
+        return useless_bullshit_because_it_threw_an_error_AH;
+    }
+
+    public void setUseless_bullshit_because_it_threw_an_error_AH(boolean useless_bullshit_because_it_threw_an_error_AH) {
+        this.useless_bullshit_because_it_threw_an_error_AH = useless_bullshit_because_it_threw_an_error_AH;
     }
 }

@@ -27,8 +27,8 @@ public class SessionEntity {
 
     // gunna be grabbed from the workout table
     private int workout_ID;
-    
     private int sets_count;
+    boolean is_active;
 
     public SessionEntity () {
 
@@ -37,7 +37,18 @@ public class SessionEntity {
     public SessionEntity (int workout_ID, int sets_count) {
         this.workout_ID = workout_ID;
         this.sets_count = sets_count;
+        this.is_active = false;
 
+    }
+
+
+
+    public boolean isIs_active() {
+        return is_active;
+    }
+
+    public void setIs_active(boolean is_active) {
+        this.is_active = is_active;
     }
 
     public void setSession_ID(int session_ID) {

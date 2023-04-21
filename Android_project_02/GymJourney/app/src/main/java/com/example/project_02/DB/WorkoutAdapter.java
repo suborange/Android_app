@@ -41,6 +41,15 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutH
 
         String workout_item = current_workout.getWorkout_name();
         holder.text_workout_item.setText(workout_item);
+
+//        String session_item = "";
+//        session_item = String.valueOf(current_session.getSets_count());
+//        session_item += " sets@ ";
+//        session_item += String.valueOf(current_session.getReps_count());
+//        session_item += " reps@ +/-";
+//        session_item += String.valueOf(current_session.getWeight());
+//        session_item += " lbs";
+//        holder.text_session_item.setText(session_item);
     }
 
     @Override
@@ -50,7 +59,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutH
 
     public void setWorkouts(List<WorkoutEntity> workouts) {
         this.workouts = workouts;
-        notifyDataSetChanged(); // TODO will be changed later, not generally used, more efficient ways.
+        notifyDataSetChanged(); 
     }
 
     public WorkoutEntity getWorkoutAt(int position) {

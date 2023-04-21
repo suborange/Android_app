@@ -18,6 +18,7 @@ import androidx.room.Room;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -35,13 +36,13 @@ import com.example.project_02.databinding.ActivityWorkoutBinding;
 
 import java.util.List;
 
-
+// workout.xml
 public class WorkoutActivity extends AppCompatActivity {
 
     /** 0.01.05.041723: created theses activities: workout, add session, current session, current workout; create IntentFactory
      * 0.02.04.042023: display the user workout name; display the view of all the workout view data from video;
      *  button should be used to add a session, taking to add session activity;
-     *  todo sliding right on a session takes user to the current session activity;
+     *  sliding right on a session takes user to the current session activity;
      *
      */
 
@@ -143,10 +144,13 @@ public class WorkoutActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                // recyclerView.setBackgroundColor(Color.parseColor("#1434A4"));
+                SessionEntity activate_session = adapter.getSessionAt(viewHolder.getAdapterPosition());
+                activate_session.setIs_active(true); // now we have the active session!!
 
-                // need to open up the sets activity for this view page
-                Intent sets_activity = SetsActivity.IntentFactory(getApplicationContext());
-                startActivity(sets_activity);
+                // need to open up the session activity for this view page
+                Intent session_activity = CurrentSessionActivity.IntentFactory(getApplicationContext());
+                startActivity(session_activity);
 
             }
         }).attachToRecyclerView(recyclerView);
@@ -161,6 +165,8 @@ public class WorkoutActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                // recyclerView.setBackgroundColor(Color.parseColor("#FAF8D9"));
+
 
                 // TODO add the alert dialog to confirm if the user should be deleted or not.
                 SessionEntity temp_session = adapter.getSessionAt(viewHolder.getAdapterPosition());

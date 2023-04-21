@@ -23,6 +23,9 @@ import com.example.project_02.DB.myDAO;
 import com.example.project_02.R;
 import com.example.project_02.databinding.ActivityAddSessionBinding;
 
+// add_session.xml
+// BEFORE workout activity
+// AFTER back to workout activity OR current session
 public class AddSessionActivity extends AppCompatActivity {
 
     /** 0.01.05.041723: created theses activities: workout, add session, current session, current journey; create IntentFactory

@@ -27,6 +27,22 @@
         android:layout_marginTop="10dp"
         />
 
+    <!--    ACCOUNTS DETAILS-->
+    <TextView
+        android:id="@+id/account_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        android:textColor="#FAF8D9"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text=" ACCOUNTS "
+        android:padding="8dp"
+        app:layout_constraintStart_toEndOf="@id/workout_icon"
+        app:layout_constraintTop_toTopOf="@id/workout_icon"
+        android:layout_marginStart="20dp"
+        />
+
 <!--    TOP BAR LEFT DETAILS-->
     <TextView
         android:id="@+id/topbar_left_text"
@@ -83,7 +99,6 @@
         tools:listitem="@layout/user_list"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topbar_left_text"
-
 
         />
 
