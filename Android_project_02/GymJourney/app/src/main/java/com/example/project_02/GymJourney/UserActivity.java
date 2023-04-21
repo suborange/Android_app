@@ -98,8 +98,9 @@ public class UserActivity extends AppCompatActivity {
         button_restart_journey.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DAO_User.DeleteAllSessions();;
+                DAO_User.DeleteAllSessions();
                 DAO_User.DeleteAllWorkouts();
+                // todo does not reset the workout name tho?
                 // the current and restart journey buttons will just make a toast for now. soon to come.
                 Toast.makeText(UserActivity.this, "journey reset", Toast.LENGTH_SHORT).show();
 
