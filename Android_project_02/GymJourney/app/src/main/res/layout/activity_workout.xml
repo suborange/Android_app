@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#22314E"
+    tools:context=".GymJourney.WorkoutActivity">
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@drawable/table_divider"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/workout_icon"
+        android:layout_width="118dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/android_icon_gj_trans3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--    " WORKOUT NAME "-->
+    <TextView
+        android:id="@+id/workout_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="test workout"
+        android:textColor="#FAF8D9"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/workout_icon"
+        app:layout_constraintTop_toTopOf="parent"
+
+
+        />
+
+
+    <!--     ADD THE DETAILS HERE-->
+    <!--    ADD RECYCLE VIEW USING THE WORKOUT LIST LAYOUT-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_session"
+        android:layout_width="wrap_content"
+        android:layout_height="435dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/workout_icon"
+        tools:listitem="@layout/session_list"
+
+        />
+
+
+    <!--    BUTTON TO GO BACK TO USER HOME-->
+    <Button
+        android:id="@+id/goback_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="#A42A04"
+        android:fontFamily="sans-serif-black"
+        android:padding="16sp"
+        android:text="Go Back"
+        android:textColor="#FAF8D9"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        />
+
+    <!--    BUTTON TO ADD SESSION-->
+    <Button
+        android:id="@+id/addsession_button"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="#355E3B"
+        android:fontFamily="sans-serif-black"
+        android:padding="16sp"
+        android:text="(+)"
+        android:textColor="#FAF8D9"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/goback_button"
+
+        />
+
+    <!--    "App Info "-->
+    <TextView
+        android:id="@+id/app_info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/version"
+        android:textColor="#FAF8D9"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--    "secret text"-->
+    <TextView
+        android:id="@+id/secret_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="@string/secret_text"
+        android:textColor="#FAF8D9"
+        android:textSize="8sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

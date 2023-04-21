@@ -1,0 +1,140 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 4,
+    "identityHash": "6f529ff66de4e7931c12dc13cab03576",
+    "entities": [
+      {
+        "tableName": "USER_TABLE",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`User_ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `User_nickname` TEXT, `User_password` TEXT, `journey_name` TEXT, `is_admin` INTEGER NOT NULL, `User_weight` REAL NOT NULL, `logged_in` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "User_ID",
+            "columnName": "User_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "User_nickname",
+            "columnName": "User_nickname",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "User_password",
+            "columnName": "User_password",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "journey_name",
+            "columnName": "journey_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "is_admin",
+            "columnName": "is_admin",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "User_weight",
+            "columnName": "User_weight",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "logged_in",
+            "columnName": "logged_in",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "User_ID"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "WORKOUT_TABLE",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`workout_ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `User_ID` INTEGER NOT NULL, `workout_name` TEXT, `is_active` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "workout_ID",
+            "columnName": "workout_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "User_ID",
+            "columnName": "User_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "workout_name",
+            "columnName": "workout_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "is_active",
+            "columnName": "is_active",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "workout_ID"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "SESSION_TABLE",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`session_ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `workout_ID` INTEGER NOT NULL, `sets_count` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "session_ID",
+            "columnName": "session_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "workout_ID",
+            "columnName": "workout_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sets_count",
+            "columnName": "sets_count",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "session_ID"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6f529ff66de4e7931c12dc13cab03576')"
+    ]
+  }
+}

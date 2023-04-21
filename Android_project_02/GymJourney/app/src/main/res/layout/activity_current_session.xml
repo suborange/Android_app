@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GymJourney.MainActivity"
-    android:background="#22314E"
-    >
+    tools:context=".GymJourney.CurrentSessionActivity"
+    android:background="#22314E">
 
 
     <View
@@ -20,70 +18,62 @@
 
     <View
         android:id="@+id/workout_icon"
-        android:layout_width="154dp"
-        android:layout_height="89dp"
+        android:layout_width="118dp"
+        android:layout_height="68dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/android_icon_gj_trans3"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         />
 
-
-
-    <!--    "GymJourney "-->
+    <!--    "{workout_name} -  "-->
     <TextView
-        android:id="@+id/GymJourney_text"
+        android:id="@+id/workout_name_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GymJourney"
+        tools:text="{work_name}"
         android:textStyle="bold"
         android:fontFamily="sans-serif-black"
-        android:textSize="58sp"
+        android:textSize="30sp"
         android:textColor="#FAF8D9"
         android:gravity="center"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/workout_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+
+        />
+
+
+    <!--    "Sets  |  Reps  |  Weight"-->
+    <TextView
+        android:id="@+id/session_details_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sets    |    Reps    |    Weight"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"
+        android:textSize="30sp"
+        android:textColor="#FAF8D9"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/workout_name_text"
+        android:layout_marginTop="30dp"
+        />
+
+    <!--    add the recycler view thing here if possible whatever it is.-->
+    <!--    will add textviews of the data, and a button to possible edit it? -->
+
+    <!--    ADD RECYCLE VIEW USING THE WORKOUT LIST LAYOUT-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_session"
+        android:layout_width="wrap_content"
+        android:layout_height="490dp"
+        tools:listitem="@layout/sets_list"
         app:layout_constraintTop_toBottomOf="@id/workout_icon"
-
-        />
-
-
-
-
-<!--    BUTTON TO LOGIN FROM THE MAIN ACTIVITY-->
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LOGIN"
-        android:textSize="32sp"
-        android:fontFamily="sans-serif-black"
-        android:padding="36sp"
-        android:textColor="#FAF8D9"
-        android:backgroundTint="#A42A04"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/GymJourney_text"
-        android:layout_marginTop="40dp"
-
-        />
-
-    <!--    BUTTON TO CREATE AN ACCOUNT ( ADD A USER )-->
-    <Button
-        android:id="@+id/createacc_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CREATE ACCOUNT"
-        android:textSize="32sp"
-        android:fontFamily="sans-serif-black"
-        android:padding="15sp"
-        android:textColor="#FAF8D9"
-        android:backgroundTint="#355E3B"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="58dp"
 
         />
 
@@ -122,6 +112,5 @@
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="30dp"
         />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,16 +1,9 @@
 /**
  * @author Ethan Bonavida
  * @since April 10, 2023
- * @version 0.01.04.041423
+ * @version 0.02.06.042123
  * @description: an android app where a use can log in as a user, or admin. the user will be able to create a workout journey to keep track and help guide their gym journey.
  * Hopefully a simple and elegant way to track gym progress, with limited typing and hassles.
- */
-
-/** VERSIONS
- * 0.01.00.041023: updated build.gradle:module:app create packages, and db files, java files and xml files; created main, login, admin, and user activity.xml
- * TODO-0.01.01.041123: deleted state entity, appended user entity; main activity displays home page to login; can login as admin or as user; 2 predefined users, 1 user 1 admin; landing page displays users name, indicate if admin.
- * TODO- isAdmin key in user table; include a logout button that takes back to the main activity; submit DAO, java files, video running the app, and pdf of updated layout and cases.
- *
  */
 package com.example.project_02.GymJourney;
 
@@ -67,8 +60,9 @@ public class LoadingActivity extends AppCompatActivity {
 
         // setup the app
 
-        // TODO first check if anything exists, dont wannna add duplicate etc. need to make this safe
+        //  first check if anything exists, dont wannna add duplicate etc. need to make this safe
         boolean user_exists = DAO_loading.TestExistenceOfUsers(true);
+        //  need to check if this returns true or false, if no users logged in then go to main activity:
         if (user_exists) {
             // check if any users are logged in, if so then go to logged in screen: user, admin, or if not then main screen
             UserEntity load_user = DAO_loading.QueryLoggedinUser(true);
@@ -86,7 +80,7 @@ public class LoadingActivity extends AppCompatActivity {
                 startActivity(adminPage);
             }
         }
-        else { // TODO need to check if this returns true or false, if no users logged in then go to main activity:
+        else { // doesnt exist, go to main activity
         Intent mainPage = MainActivity.IntentFactory(getApplicationContext());
         startActivity(mainPage);
 

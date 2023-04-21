@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
   "database": {
-    "version": 1,
-    "identityHash": "1dd6cefbf5c6b034410a8efaa81a5098",
+    "version": 3,
+    "identityHash": "9190a96bf56cb3c89508665460309b47",
     "entities": [
       {
         "tableName": "USER_TABLE",
@@ -59,12 +59,50 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "WORKOUT_TABLE",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`workout_ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `User_ID` INTEGER NOT NULL, `workout_name` TEXT, `is_active` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "workout_ID",
+            "columnName": "workout_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "User_ID",
+            "columnName": "User_ID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "workout_name",
+            "columnName": "workout_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "is_active",
+            "columnName": "is_active",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "workout_ID"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1dd6cefbf5c6b034410a8efaa81a5098')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '9190a96bf56cb3c89508665460309b47')"
     ]
   }
 }
